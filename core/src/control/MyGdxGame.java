@@ -23,16 +23,23 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import comunes.MakingACage;
 import comunes.Constantes;
+import comunes.HUD;
 
 public class MyGdxGame extends ApplicationAdapter {
 	World world;
 	Game game;
+	HUD hud;
+	SpriteBatch batch;
+	OrthographicCamera camara;
 
 	@Override
 	public void create() {
+		batch=new SpriteBatch();
 		world = new World(new Vector2(0, 0), true);
 		world.setGravity(new Vector2(0, Constantes.GRAVEDAD_Y));
 		game=new Game(world);
+		camara = new OrthographicCamera(Gdx.graphics.getWidth() * 2, Gdx.graphics.getHeight() * 2);
+		hud=new HUD();
 		
 	}
 
@@ -40,7 +47,11 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glClearColor(67/255f, 5/255f, 44/255f, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		camara.update();
 		world.step(1f / 60f, 6, 2);
+		batch.begin();
+		hud.pintar(batch, camara);
+		batch.end();
 		game.act();
 		game.render();
 
