@@ -17,6 +17,7 @@ public abstract class MyBody {
 	TextureRegion textura;
 	BodyDef bodyDef = new BodyDef();
 	public Body body;
+	public MyBehavior myBehavior;
 	
 	public MyBody(World world,float posX,float posY) {
 	}

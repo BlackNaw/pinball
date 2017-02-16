@@ -23,7 +23,7 @@ public class TableroBody extends MyBody {
 		bodyDef.position.set(0,0);
 		bodyDef.type = BodyDef.BodyType.StaticBody;
 		this.body = world.createBody(bodyDef);
-		body.setUserData("tablero");
+		body.setUserData(this);
 	}
 	
 

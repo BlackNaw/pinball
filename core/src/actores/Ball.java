@@ -16,9 +16,9 @@ public class Ball extends MyActor {
 
 	public Ball(World world, float posX, float posY) {
 		super(world, posX, posY);
-		BallBody bodyBall = new BallBody(world, posX, posY);
-		myBehavior = new BallBehavior(bodyBall);
-		myFixture = new BallFixture(bodyBall);
+		myBody = new BallBody(world, posX, posY);
+		myBody.myBehavior = new BallBehavior(myBody);
+		myFixture = new BallFixture(myBody);
 	}
 
 }

@@ -24,7 +24,7 @@ public class BallBody extends MyBody {
 		bodyDef.position.set((sprite.getX() + sprite.getWidth() / 2) / Constantes.PIXELS_TO_METERS,
 				(sprite.getY() + sprite.getHeight() / 2) / Constantes.PIXELS_TO_METERS);
 		this.body = world.createBody(bodyDef);
-		body.setUserData("bola");
+		body.setUserData(this);
 
 	}
 

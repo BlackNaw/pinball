@@ -1,5 +1,7 @@
 package behaviors;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,6 +26,9 @@ public class BallBehavior extends MyBehavior implements IObservador {
 		myBody.sprite.setPosition((myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) - myBody.sprite.getWidth() / 2,
 				(myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS) -myBody.sprite.getHeight() / 2);
 		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+			myBody.body.applyLinearImpulse(new Vector2(0,0.2f), myBody.body.getWorldCenter(), true);
+		}
 		
 	}
 	@Override

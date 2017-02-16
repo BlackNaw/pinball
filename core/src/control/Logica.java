@@ -4,7 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.physics.box2d.Contact;
 
+import actores.MyActor;
+import behaviors.MyBehavior;
+import bodies.MyBody;
 import comunes.ContactAdapter;
+import fixturas.MyFixture;
 
 public class Logica extends ContactAdapter {
 
@@ -22,9 +26,8 @@ public class Logica extends ContactAdapter {
 	}
 	@Override
 	public void beginContact(Contact contact) {
-		// TODO Auto-generated method stub
 		super.beginContact(contact);
+		((MyBody)(contact.getFixtureA().getBody().getUserData())).myBehavior.chocar(null);
+		
 	}
-
-
 }
