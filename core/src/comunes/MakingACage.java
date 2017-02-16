@@ -52,6 +52,8 @@ public class MakingACage {
 		edgeShape.dispose();
 	}
 	
+	
+	
 	public void destroi(){
 		World world=ground.getWorld();
 
