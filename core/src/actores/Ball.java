@@ -14,10 +14,10 @@ import interfaces.IObservador;
 
 public class Ball extends MyActor {
 
-	public Ball(World world, IObservable observable, float posX, float posY) {
+	public Ball(World world, float posX, float posY) {
 		super(world, posX, posY);
 		BallBody bodyBall = new BallBody(world, posX, posY);
-		myBehavior = new BallBehavior(bodyBall,observable);
+		myBehavior = new BallBehavior(bodyBall);
 		myFixture = new BallFixture(bodyBall);
 	}
 

@@ -23,8 +23,8 @@ public class GestorElementos {
 		
 		
 	
-	public GestorElementos(World world, IObservable observable) {
-		ball=new Ball(world,observable,360,200);
+	public GestorElementos(World world) {
+		ball=new Ball(world,360,200);
 		tablero=new Tablero(world, 0, 0);
 	}
 	

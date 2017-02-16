@@ -36,11 +36,12 @@ public class Game implements Disposable{
 		stage=new Stage(mycamera.viewport,batch);
 		teclado=new Teclado();
 		Gdx.input.setInputProcessor(teclado);
-		myDebug=new MyDebug(teclado);
+		myDebug=new MyDebug();
+		teclado.addObserver(myDebug);
 ////		caja = new MakingACage(world, 0, Gdx.graphics.getWidth() / Constantes.PIXELS_TO_METERS,
 //				Gdx.graphics.getHeight() / Constantes.PIXELS_TO_METERS, 1);
 		logica=new Logica();
-		gestor=new GestorElementos(world,teclado);
+		gestor=new GestorElementos(world);
 		gestor.anadirElementosStage(stage);
 //		alerta=new Alerta(logica);
 		this.world.setContactListener(logica);
