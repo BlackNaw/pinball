@@ -15,12 +15,8 @@ import interfaces.IObservador;
 
 public class BallBehavior extends MyBehavior implements IObservador {
 
-//	private IObservable observable;
-	public BallBehavior(MyBody myBody, IObservable observable) {
+	public BallBehavior(MyBody myBody) {
 		super(myBody);
-		((Teclado)observable).addObserverDos(this);
-//		this.observable=observable;
-//		this.observable.addObserver(this);
 		
 	}
 	@Override
@@ -37,8 +33,7 @@ public class BallBehavior extends MyBehavior implements IObservador {
 	}
 	@Override
 	public void update() {
-		myBody.body.applyLinearImpulse(new Vector2(0.0f,0.2f), myBody.body.getWorldCenter(), true);
-		System.out.println("BOLA SALTA");
+		// TODO Auto-generated method stub
 		
 	}
 	

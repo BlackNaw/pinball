@@ -12,14 +12,12 @@ import interfaces.IObservable;
 import interfaces.IObservador;
 
 public class Teclado extends InputAdapter implements IObservable {
-	public static ArrayList<IObservador> debug;
-	public static ArrayList<IObservador> observadoresUno;
+	public static ArrayList<IObservador> observadores;
 	private boolean ctrl = false;
 	public boolean space = false;
 
 	public Teclado() {
-		debug = new ArrayList<IObservador>();
-		observadoresUno = new ArrayList<IObservador>();
+		observadores = new ArrayList<IObservador>();
 	}
 
 	@Override
@@ -36,10 +34,6 @@ public class Teclado extends InputAdapter implements IObservable {
 		if (keycode == 129) {
 			ctrl = false;
 		}
-		if (keycode == Input.Keys.SPACE) {
-			notifyObservers(observadoresUno);
-			space = false;
-		}
 
 		return true;
 	}
@@ -48,7 +42,7 @@ public class Teclado extends InputAdapter implements IObservable {
 		if (ctrl) {
 
 			if (keycode == Input.Keys.D) {
-				notifyObservers(debug);
+				notifyObservers();
 
 			}
 		}
@@ -57,28 +51,20 @@ public class Teclado extends InputAdapter implements IObservable {
 
 	}
 
-	public void addObserverDebug(IObservador observador) {
-		debug.add(observador);
-
-	}
-
-	public void addObserverDos(IObservador observador) {
-		observadoresUno.add(observador);
-	}
 
 	@Override
 	public void addObserver(IObservador observador) {
-
+		observadores.add(observador);
 	}
 
 	@Override
 	public void removeObserver(IObservador observador) {
-		debug.remove(observador);
+		observadores.remove(observador);
 	}
 
 	@Override
-	public void notifyObservers(ArrayList<IObservador> observer) {
-		for (IObservador iObservador : observer) {
+	public void notifyObservers() {
+		for (IObservador iObservador : observadores) {
 			iObservador.update();
 		}
 

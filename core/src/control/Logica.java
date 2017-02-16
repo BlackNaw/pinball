@@ -11,7 +11,7 @@ import comunes.Teclado;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
-public class Logica extends ContactAdapter implements IObservable {
+public class Logica extends ContactAdapter {
 
 	private ArrayList<IObservador> observadores;
 
@@ -26,23 +26,11 @@ public class Logica extends ContactAdapter implements IObservable {
 			System.out.println("derecha");
 
 	}
-
 	@Override
-	public void addObserver(IObservador observador) {
+	public void beginContact(Contact contact) {
 		// TODO Auto-generated method stub
-
+		super.beginContact(contact);
 	}
 
-	@Override
-	public void removeObserver(IObservador observador) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void notifyObservers(ArrayList<IObservador> observador) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
