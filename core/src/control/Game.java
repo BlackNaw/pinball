@@ -23,10 +23,8 @@ public class Game implements Disposable{
 	MyDebug myDebug;
 	World world;
 	GestorElementos gestor;
-	MakingACage caja;
 	Logica logica;
 	Teclado teclado;
-	Alerta alerta;
 	
 	
 	public Game(World world) {
@@ -38,12 +36,9 @@ public class Game implements Disposable{
 		Gdx.input.setInputProcessor(teclado);
 		myDebug=new MyDebug();
 		teclado.addObserver(myDebug);
-////		caja = new MakingACage(world, 0, Gdx.graphics.getWidth() / Constantes.PIXELS_TO_METERS,
-//				Gdx.graphics.getHeight() / Constantes.PIXELS_TO_METERS, 1);
 		logica=new Logica();
 		gestor=new GestorElementos(world);
 		gestor.anadirElementosStage(stage);
-//		alerta=new Alerta(logica);
 		this.world.setContactListener(logica);
 	}
 	
