@@ -1,7 +1,9 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
+.project
+core\.project
+desktop\.project
 # Folder config file
 Desktop.ini
 
@@ -47,3 +49,5 @@ Temporary Items
 .apdisk
 /.gradle/
 /build/
+
+desktop/.project
