@@ -50,7 +50,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		camara.update();
 		world.step(1f / 60f, 6, 2);
 		batch.begin();
-		hud.pintar(batch, camara);
+		hud.pintar(batch);
 		batch.end();
 		game.act();
 		game.render();

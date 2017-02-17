@@ -24,13 +24,13 @@ public class HUD implements Disposable{
 		this.font=new BitmapFont(Gdx.files.internal("Fuente/painball.fnt"));
 	}
 
-	public void pintar(SpriteBatch batch, Camera camera) {
-		batch.draw(marcoSuperior, camera.position.x-Gdx.graphics.getWidth()+160,  camera.position.y-Gdx.graphics.getHeight()/2+655,650,30);
-		batch.draw(marcoInferior, camera.position.x-Gdx.graphics.getWidth()+160,  camera.position.y-Gdx.graphics.getHeight()/2+600,650,30);
+	public void pintar(SpriteBatch batch) {
+		batch.draw(marcoSuperior,Gdx.graphics.getWidth()+160, Gdx.graphics.getHeight()/2+655,650,30);
+		batch.draw(marcoInferior,Gdx.graphics.getWidth()+160, Gdx.graphics.getHeight()/2+600,650,30);
 		
 		//font.draw(batch, "Llaves :"+Jugador.llaves.size(),camera.position.x-Gdx.graphics.getWidth()/2+20, camera.position.y+Gdx.graphics.getHeight()/2-10); 
-		font.draw(batch, "Score: "+puntuacion, camera.position.x+Gdx.graphics.getWidth()/2-155, camera.position.y+Gdx.graphics.getHeight()/2-25);
-		font.draw(batch, "Life: "+numeroVidas, camera.position.x+Gdx.graphics.getWidth()/2-450, camera.position.y+Gdx.graphics.getHeight()/2-25);
+		font.draw(batch, "Score: "+puntuacion,Gdx.graphics.getWidth()/2-155,Gdx.graphics.getHeight()/2-25);
+		font.draw(batch, "Life: "+numeroVidas,Gdx.graphics.getWidth()/2-450,Gdx.graphics.getHeight()/2-25);
 	}
 
 	@Override

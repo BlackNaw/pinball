@@ -1,5 +1,7 @@
 package bodies;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,6 +20,9 @@ public abstract class MyBody {
 	BodyDef bodyDef = new BodyDef();
 	public Body body;
 	public MyBehavior myBehavior;
+	public BitmapFont font;
+	public Texture marcoSuperior,marcoInferior;
+
 	
 	public MyBody(World world,float posX,float posY) {
 	}
