@@ -1,14 +1,9 @@
 package control;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.physics.box2d.Contact;
 
-import actores.MyActor;
-import behaviors.MyBehavior;
 import bodies.MyBody;
 import comunes.ContactAdapter;
-import fixturas.MyFixture;
 
 public class Logica extends ContactAdapter {
 	MyBody bodyA, bodyB;

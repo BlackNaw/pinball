@@ -16,8 +16,8 @@ public class BallBody extends MyBody {
 	public BallBody(World world, float posX, float posY) {
 		super(world, posX, posY);
 		textureMapa = new TextureAtlas(Gdx.files.internal("bola.atlas"));
-		textura = new TextureRegion(textureMapa.findRegion("bola" + getRandomColor()));
-		sprite = new Sprite(textura);
+		texturaRegion = new TextureRegion(textureMapa.findRegion("bola" + getRandomColor()));
+		sprite = new Sprite(texturaRegion);
 		sprite.setPosition(posX, posY);
 		sprite.setSize(20, 20);
 		bodyDef.type = BodyDef.BodyType.DynamicBody;

@@ -16,12 +16,12 @@ import fixturas.MyFixture;
 public abstract class MyBody {
 	public Sprite sprite;
 	TextureAtlas textureMapa;
-	TextureRegion textura;
+	TextureRegion texturaRegion;
 	BodyDef bodyDef = new BodyDef();
 	public Body body;
 	public MyBehavior myBehavior;
 	public BitmapFont font;
-	public Texture marcoSuperior,marcoInferior;
+	public Texture texture;
 
 	
 	public MyBody(World world,float posX,float posY) {

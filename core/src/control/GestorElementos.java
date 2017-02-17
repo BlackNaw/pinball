@@ -1,22 +1,13 @@
 package control;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import actores.Ball;
+import actores.HUD;
 import actores.MyActor;
 import actores.Tablero;
-import behaviors.BallBehavior;
-import bodies.BallBody;
-import comunes.HUD;
-import fixturas.BallFixture;
-import fixturas.MyFixture;
-import interfaces.IObservable;
-import interfaces.IObservador;
 
 
 public class GestorElementos {
@@ -27,7 +18,7 @@ public class GestorElementos {
 	public GestorElementos(World world) {
 		ball=new Ball(world,360,200);
 		tablero=new Tablero(world, 0, 0);
-		hud=new actores.HUD(world, 500, 300);
+		hud=new HUD(world, Gdx.graphics.getWidth()-200, Gdx.graphics.getHeight()-100);
 	}
 	
 	
