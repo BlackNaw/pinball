@@ -11,23 +11,29 @@ import comunes.ContactAdapter;
 import fixturas.MyFixture;
 
 public class Logica extends ContactAdapter {
-
+	MyBody bodyA, bodyB;
 
 	public Logica() {
-		
+
 	}
 
 	public void act() {
-		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT))
-			System.out.println("izquierda");
-		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT))
-			System.out.println("derecha");
 
 	}
+
 	@Override
 	public void beginContact(Contact contact) {
 		super.beginContact(contact);
-		((MyBody)(contact.getFixtureA().getBody().getUserData())).myBehavior.chocar(null);
-		
+		bodyA = (MyBody) (contact.getFixtureA().getBody().getUserData());
+		bodyB = (MyBody) (contact.getFixtureB().getBody().getUserData());
+
+		if (bodyA.getClass().getSimpleName().contains("ball")) {
+			bodyB.myBehavior.chocar(bodyA.body);
+		} else {
+			bodyA.myBehavior.chocar(bodyB.body);
+
+		}
+
 	}
+
 }
