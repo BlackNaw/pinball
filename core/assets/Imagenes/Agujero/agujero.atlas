@@ -1,0 +1,33 @@
+
+agujero.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+agujero
+  rotate: false
+  xy: 1, 1
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: 1
+agujero
+  rotate: false
+  xy: 147, 1
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: 2
+agujero
+  rotate: false
+  xy: 293, 1
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: 3
+agujero
+  rotate: false
+  xy: 439, 1
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: 4
