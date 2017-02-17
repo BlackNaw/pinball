@@ -3,9 +3,13 @@ package control;
 import com.badlogic.gdx.physics.box2d.Contact;
 
 import bodies.MyBody;
+import bodies.RejillaAccesoBody;
 import comunes.ContactAdapter;
+import comunes.Estados;
+import fixturas.ISensor;
 
 public class Logica extends ContactAdapter {
+
 	MyBody bodyA, bodyB;
 
 	public Logica() {
@@ -13,7 +17,10 @@ public class Logica extends ContactAdapter {
 	}
 
 	public void act() {
-
+		if(!Estados.juegoTerminado.getEstado()){
+			//System.out.println("en juego");
+			
+		}
 	}
 
 	@Override
@@ -21,7 +28,15 @@ public class Logica extends ContactAdapter {
 		super.beginContact(contact);
 		bodyA = (MyBody) (contact.getFixtureA().getBody().getUserData());
 		bodyB = (MyBody) (contact.getFixtureB().getBody().getUserData());
-
+		
+		//SENSORES
+		if(contact.getFixtureA().isSensor()){
+			((ISensor)bodyA).sensorPulsado();
+		}else if(contact.getFixtureB().isSensor()){
+			((ISensor)bodyB).sensorPulsado();
+		}
+			
+			
 		if (bodyA.getClass().getSimpleName().contains("Ball")) {
 			bodyB.myBehavior.chocar(bodyA.body);
 		} else {

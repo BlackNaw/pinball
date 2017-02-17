@@ -20,14 +20,13 @@ public class RejillaAccesoBehaviors extends MyBehavior{
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		// TODO Auto-generated method stub
+		myBody.sprite.draw(batch);
 		
 	}
 	
 	@Override
 	public void chocar(Body bolaBody) {
 		// TODO Auto-generated method stub
-		super.chocar(bolaBody);
 	}
 
 }

@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 import bodies.MyBody;
 import comunes.Constantes;
+import comunes.Estados;
 import comunes.Teclado;
 import control.Logica;
 import interfaces.IObservable;

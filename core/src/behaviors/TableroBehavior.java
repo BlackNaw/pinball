@@ -24,10 +24,5 @@ public class TableroBehavior extends MyBehavior{
 		
 	}
 	
-	@Override
-	public void chocar(Body bolaBody) {
-		super.chocar(bolaBody);
-		System.out.println("choca");
-	}
 
 }
