@@ -22,7 +22,7 @@ public class Logica extends ContactAdapter {
 		bodyA = (MyBody) (contact.getFixtureA().getBody().getUserData());
 		bodyB = (MyBody) (contact.getFixtureB().getBody().getUserData());
 
-		if (bodyA.getClass().getSimpleName().contains("ball")) {
+		if (bodyA.getClass().getSimpleName().contains("Ball")) {
 			bodyB.myBehavior.chocar(bodyA.body);
 		} else {
 			bodyA.myBehavior.chocar(bodyB.body);
