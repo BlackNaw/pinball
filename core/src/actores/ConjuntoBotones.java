@@ -10,6 +10,7 @@ import interfaces.IReiniciable;
 public class ConjuntoBotones {
 	
 	ArrayList<Boton> botones;
+	boolean notificado=false;
 	
 	public ConjuntoBotones(World world, float posX, float posY, float giro,float factorDesplazamiento) {
 		botones=new ArrayList<Boton>();
@@ -19,7 +20,8 @@ public class ConjuntoBotones {
 			}
 			botones.add(new Boton(world, posX, posY, giro));
 			if(Math.abs(giro)>45){
-				posY +=10;
+				posY+=9.8f;
+			
 			}else {
 				posY +=17;
 			}
@@ -33,13 +35,18 @@ public class ConjuntoBotones {
 	}
 	
 	public boolean comprobarConjuntoBotones(){
-		boolean todosActivados=true;
+		int contador=0;
 		for (Boton boton : botones) {
 			if(!((BotonBehaivor)(boton.myBody.myBehavior)).activado){
-				todosActivados=false;
+				return false;
 			}
 		}
-		return todosActivados;
+		if(!notificado){
+			//TODO: aquí se iluminaría uno de los circulos del superbumper
+		System.out.println("conjunto activado");
+		notificado=true;
+		}
+		return true;
 	}
 	
 	
@@ -47,6 +54,7 @@ public class ConjuntoBotones {
 		for (Boton boton : botones) {
 			((IReiniciable)(boton.myBody.myBehavior)).reiniciar();
 		}
+		notificado=false;
 	}
 
 

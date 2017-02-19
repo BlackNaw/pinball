@@ -16,7 +16,6 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable{
 
 	@Override
 	public void act(float delta) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -12,6 +12,7 @@ public class BotonBody extends MyBody {
 
 	public BotonBody(World world, float posX, float posY,float giro) {
 		super(world, posX, posY);
+		
 		texture=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);
@@ -24,5 +25,7 @@ public class BotonBody extends MyBody {
 		this.body = world.createBody(bodyDef);
 		body.setUserData(this);
 	}
+	
+	
 
 }

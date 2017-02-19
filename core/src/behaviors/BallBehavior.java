@@ -16,7 +16,7 @@ import control.Logica;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
-public class BallBehavior extends MyBehavior implements IObservador {
+public class BallBehavior extends MyBehavior{
 
 	public BallBehavior(MyBody myBody) {
 		super(myBody);
@@ -27,8 +27,17 @@ public class BallBehavior extends MyBehavior implements IObservador {
 		myBody.sprite.setPosition((myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) - myBody.sprite.getWidth() / 2,
 				(myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS) -myBody.sprite.getHeight() / 2);
 		
-		if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-			myBody.body.applyLinearImpulse(new Vector2(0,0.2f), myBody.body.getWorldCenter(), true);
+		if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+			myBody.body.applyLinearImpulse(new Vector2(0,0.05f), myBody.body.getWorldCenter(), true);
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+			myBody.body.applyLinearImpulse(new Vector2(-0.05f,0), myBody.body.getWorldCenter(), true);
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+			myBody.body.applyLinearImpulse(new Vector2(0.05f,0), myBody.body.getWorldCenter(), true);
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+			myBody.body.applyLinearImpulse(new Vector2(0,-0.05f), myBody.body.getWorldCenter(), true);
 		}
 		
 	}
@@ -37,11 +46,7 @@ public class BallBehavior extends MyBehavior implements IObservador {
 		myBody.sprite.draw(batch);
 		
 	}
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	
 

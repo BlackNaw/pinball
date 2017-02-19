@@ -12,7 +12,7 @@ import interfaces.IObservable;
 import interfaces.IObservador;
 
 public class Teclado extends InputAdapter implements IObservable {
-	public static ArrayList<IObservador> observadores;
+	public  ArrayList<IObservador> observadores;
 	private boolean ctrl = false;
 	public boolean space = false;
 
