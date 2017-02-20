@@ -1,6 +1,7 @@
 package behaviors;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import actores.HUD;
@@ -10,8 +11,10 @@ import interfaces.IHUD;
 import interfaces.IReiniciable;
 
 public class HUDBehavior extends MyBehavior implements IReiniciable {
+	Texture textura;
 	public HUDBehavior(MyBody myBody) {
 		super(myBody);
+		textura=new Texture(Gdx.files.internal("Imagenes/HUD/paredPuntuacion.png"));
 	}
 
 	@Override
@@ -23,6 +26,7 @@ public class HUDBehavior extends MyBehavior implements IReiniciable {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		
+		batch.draw(textura, 390, 0);
 		myBody.sprite.draw(batch);
 		myBody.font.draw(batch, "Vidas: "+HUD.vidas,myBody.sprite.getX()+20,myBody.sprite.getY());
 		if(HUD.puntuacion<100000){

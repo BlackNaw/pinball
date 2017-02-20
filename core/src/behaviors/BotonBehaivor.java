@@ -40,8 +40,8 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable{
 			HUD.puntuacion+=50;
 		}
 		
-		activado=true;
 		
+		if(!activado){
 		vecX = bolaBody.getLinearVelocity().x * -0.08f;
 		vecY = bolaBody.getLinearVelocity().y * -0.08f;
 
@@ -49,9 +49,9 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable{
 		vecY = (Math.abs(vecY) < fuerzaBumperA) ? vecY : fuerzaBumperA * (Math.abs(vecY) / vecY);
 
 		vecY = (vecY < (-0.4f)) ? -0.4f : vecY;
-		
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
-		
+		}
+		activado=true;
 		((BotonBody)myBody).desactivar();
 		
 	

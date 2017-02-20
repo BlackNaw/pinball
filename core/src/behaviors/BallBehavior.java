@@ -40,6 +40,10 @@ public class BallBehavior extends MyBehavior{
 			myBody.body.applyLinearImpulse(new Vector2(0,-0.05f), myBody.body.getWorldCenter(), true);
 		}
 		
+		if((myBody.body.getPosition().x*Constantes.PIXELS_TO_METERS)<250){
+			Estados.bolaEnJuego.setEstado(true);
+		}
+		
 	}
 	@Override
 	public void draw(Batch batch, float parentAlpha) {

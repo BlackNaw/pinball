@@ -37,7 +37,7 @@ public class GestorElementos {
 		
 		ball=new Ball(world,360,200);
 		tablero=new Tablero(world, 0, 0);
-		hud=new HUD(world, Gdx.graphics.getWidth()-200, Gdx.graphics.getHeight()-100);
+		hud=new HUD(world, Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight()-100);
 				
 		todosBotones=new TodosBotones(world, 0, 0);
 		
@@ -53,7 +53,7 @@ public class GestorElementos {
 		bumpers.add(new BumperA(world, 200, 500,rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 245, 425,rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 150, 410,rejillaAccceso.get("rejillaAcceso")));
-		bumpers.add(new BumperA(world, 80,530,rejillaAccceso.get("rejillaAcceso")));
+		bumpers.add(new BumperA(world, 80,530,rejillaAccceso.get("rejillaAccesoLab")));
 		
 		//-- DAVID--//
 		trampilla = new Muro(world, 254, 602, 30, 2, "bloqueo.png");
@@ -76,10 +76,16 @@ public class GestorElementos {
 	
 	
 	public void anadirElementosStage(Stage stage){
-		((Ball)ball).setStage(stage);
 		stage.addActor(tablero);
-	
-		
+		//-- DAVID--//
+				for (Entry<String, RejillaAcceso> rejillas : rejillaAccceso.entrySet()) {
+					for (Muro trump : rejillas.getValue().getMuros()) {
+						stage.addActor(trump);
+					}
+					for (Rejilla rejilla : rejillas.getValue().getRejillas()) {
+						stage.addActor(rejilla);
+					}
+				}
 		for (MyActor myActor : bumpers) {
 			stage.addActor(myActor);
 		}
@@ -95,16 +101,11 @@ public class GestorElementos {
 		stage.addActor(ball);
 		stage.addActor(hud);
 		
-		//-- DAVID--//
-		for (Entry<String, RejillaAcceso> rejillas : rejillaAccceso.entrySet()) {
-			for (Muro trump : rejillas.getValue().getMuros()) {
-				stage.addActor(trump);
-			}
-			for (Rejilla rejilla : rejillas.getValue().getRejillas()) {
-				stage.addActor(rejilla);
-			}
-		}
+		
 		stage.addActor(trampilla);
+		
+		((Ball)ball).setStage(stage);
+		
 		
 	}
 	
