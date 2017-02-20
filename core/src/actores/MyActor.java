@@ -8,27 +8,25 @@ import behaviors.MyBehavior;
 import bodies.MyBody;
 import fixturas.MyFixture;
 
-public abstract class MyActor extends Actor{
-	
+public abstract class MyActor extends Actor {
+
 	public MyBody myBody;
 	public MyFixture myFixture;
-	
-	public MyActor(World world,float posX,float posY) {
-		
+
+	public MyActor(World world, float posX, float posY) {
+
 	}
-	
+
 	@Override
 	public void act(float delta) {
 		super.act(delta);
 		myBody.myBehavior.act(delta);
 	}
-	
+
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		myBody.myBehavior.draw(batch, parentAlpha);
 	}
-	
-	
 
 }
