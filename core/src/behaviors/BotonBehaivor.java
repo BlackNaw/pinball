@@ -53,6 +53,7 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable{
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
 		
 		((BotonBody)myBody).desactivar();
+		
 	
 	}
 

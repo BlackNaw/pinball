@@ -14,11 +14,11 @@ import interfaces.IObservador;
 
 public class BumperA extends MyActor{
 
-	public BumperA(World world, float posX, float posY, TodosBotonesBehavior Behavior) {
+	public BumperA(World world, float posX, float posY, RejillaAcceso rejillaAcceso) {
 		super(world, posX, posY);
 		myBody = new BumperABody(world, posX, posY);
 		myBody.myBehavior = new BumperABehavior(myBody);
-		Behavior.addObserver((IObservador) myBody.myBehavior);
+		rejillaAcceso.addObserver((IObservador) myBody.myBehavior);
 		myFixture = new BumperAFixture(myBody);
 	}
 

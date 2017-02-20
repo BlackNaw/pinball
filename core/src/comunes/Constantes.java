@@ -10,6 +10,8 @@ public class Constantes {
 	public static final int NUMEROVIDAS=3;
 	public static final int PUNTOS_BUMPERA=100;
 	public static final float FUERZA_MAX_BUMPER=0.7f;
+	public static final int ANCHO_MURO_REJILLA=10;
+	public static final int IMPULSO_TRAMPILLA=50;
 
 
 }

@@ -45,5 +45,19 @@ public class Logica extends ContactAdapter {
 		}
 
 	}
+	
+	
+	@Override
+	public void endContact(Contact contact) {
+		super.endContact(contact);
+		bodyA = (MyBody) (contact.getFixtureA().getBody().getUserData());
+		bodyB = (MyBody) (contact.getFixtureB().getBody().getUserData());
+		if (bodyA.getClass().getSimpleName().contains("Muro")) {
+			bodyB.myBehavior.chocar(bodyA.body);
+		} else if (bodyB.getClass().getSimpleName().contains("Muro")) {
+			bodyA.myBehavior.chocar(bodyB.body);
+
+		}
+	}
 
 }
