@@ -3,6 +3,8 @@ package actores;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import behaviors.BotonBehaivor;
 import interfaces.IReiniciable;
@@ -35,7 +37,6 @@ public class ConjuntoBotones {
 	}
 	
 	public boolean comprobarConjuntoBotones(){
-		int contador=0;
 		for (Boton boton : botones) {
 			if(!((BotonBehaivor)(boton.myBody.myBehavior)).activado){
 				return false;

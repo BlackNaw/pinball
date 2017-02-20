@@ -35,6 +35,7 @@ public class GestorElementos {
 		rejillaAcceso=new RejillaAcceso(world, 45, 450);
 				
 		todosBotones=new TodosBotones(world, 0, 0);
+		
 		((TodosBotonesBehavior)todosBotones.myBody.myBehavior).addObserver((IObservador) ball);
 		
 		bumpers.add(new BumperA(world, 200, 500,(TodosBotonesBehavior) todosBotones.myBody.myBehavior));
@@ -47,6 +48,8 @@ public class GestorElementos {
 	public void anadirElementosStage(Stage stage){
 		((Ball)ball).setStage(stage);
 		stage.addActor(tablero);
+	
+		
 		for (MyActor myActor : bumpers) {
 			stage.addActor(myActor);
 		}
@@ -58,15 +61,11 @@ public class GestorElementos {
 			}
 			
 		}
-//		for (ConjuntoBotones conjunto : conjuntoBotones) {
-//			for (MyActor myActor : conjunto.getBotones()) {
-//				stage.addActor(myActor); 
-//			}
-//		}
 		
 		stage.addActor(rejillaAcceso);
 		stage.addActor(ball);
 		stage.addActor(hud);
+		
 	}
 	
 	

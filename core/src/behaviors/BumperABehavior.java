@@ -37,6 +37,23 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 
 	@Override
 	public void chocar(Body bolaBody) {
+		
+		Thread hilo=new Thread(new Runnable() {
+			
+			public void run() {
+				((BumperABody) myBody).iluminar(nivel);
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				((BumperABody) myBody).cambiarTexture(nivel);				
+			}
+		});
+		hilo.start();
+		
+		
 		vecX = bolaBody.getLinearVelocity().x * -0.08f;
 		vecY = bolaBody.getLinearVelocity().y * -0.08f;
 
@@ -48,7 +65,7 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 		HUD.puntuacion += puntuacion;
 
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
-
+		
 	}
 
 	@Override
@@ -58,5 +75,8 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 			((BumperABody) myBody).cambiarTexture(++nivel);
 
 	}
+	
+	
+	
 
 }

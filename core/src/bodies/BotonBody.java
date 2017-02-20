@@ -9,11 +9,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import comunes.Constantes;
 
 public class BotonBody extends MyBody {
-
+	Texture desactivado;
+	Texture activado;
 	public BotonBody(World world, float posX, float posY,float giro) {
 		super(world, posX, posY);
-		
-		texture=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
+		activado=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
+		desactivado=new Texture(Gdx.files.internal("Imagenes/Botones/botonVerde.png"));
+		texture=activado;
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);
 		sprite.setSize(3, 15);
@@ -26,6 +28,15 @@ public class BotonBody extends MyBody {
 		body.setUserData(this);
 	}
 	
+	
+	public void desactivar(){
+		sprite.setTexture(desactivado);
+	}
+	
+	public void activar(){
+		sprite.setTexture(activado);
+		
+	}
 	
 
 }
