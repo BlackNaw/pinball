@@ -24,21 +24,25 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 
 	@Override
 	public void act(float delta) {
+		myBody.body.setAwake(activo);
 		myBody.body.setActive(activo);
+		
 		Thread hilo = new Thread(new Runnable() {
 
 			public void run() {
 				try {
-					Thread.sleep(99999);
+					Thread.sleep(50000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				activo=false;
-				myBody.body.setActive(activo);
+				
 			}
 		});
 		hilo.start();
+		myBody.body.setAwake(activo);
+		myBody.body.setActive(activo);
 		
 
 	}
