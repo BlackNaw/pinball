@@ -11,11 +11,11 @@ import interfaces.IObservable;
 import interfaces.IObservador;
 import interfaces.IReiniciable;
 
-public class TodosBotonesBehavior extends MyBehavior implements IReiniciable, IObservable {
+public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciable, IObservable {
 	ArrayList<ConjuntoBotones> conjuntoBotones;
-	public static ArrayList<IObservador> observadores;
+	public  ArrayList<IObservador> observadores;
 
-	public TodosBotonesBehavior(MyBody myBody, ArrayList<ConjuntoBotones> conjuntoBotones) {
+	public BotonesSuperBumperBehavior(MyBody myBody, ArrayList<ConjuntoBotones> conjuntoBotones) {
 		super(myBody);
 		this.conjuntoBotones = conjuntoBotones;
 		observadores=new ArrayList<IObservador>();

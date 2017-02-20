@@ -8,4 +8,6 @@ public interface IChocable {
 	
 	void chocar(Body bodyBola);
 
+	void finalizarChoque();
+
 }

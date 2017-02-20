@@ -5,7 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import behaviors.BallBehavior;
 import behaviors.BumperABehavior;
 import behaviors.MyBehavior;
-import behaviors.TodosBotonesBehavior;
+import behaviors.BotonesSuperBumperBehavior;
 import bodies.BallBody;
 import bodies.BumperABody;
 import fixturas.BallFixture;

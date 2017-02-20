@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import behaviors.BallBehavior;
 import behaviors.MyBehavior;
-import behaviors.TodosBotonesBehavior;
+import behaviors.BotonesSuperBumperBehavior;
 import bodies.BallBody;
 import control.Logica;
 import fixturas.BallFixture;
@@ -29,7 +29,7 @@ public class Ball extends MyActor implements IObservador{
 	@Override
 	public void update() {
 		System.out.println("nueva bola");
-		MyActor bola= new Ball(world, 200, 300);
+		MyActor bola= new Ball(world, 200, 400);
 		stage.addActor(bola);
 	}
 	

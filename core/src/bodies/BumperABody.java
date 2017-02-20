@@ -30,7 +30,7 @@ public class BumperABody extends MyBody {
 		texture = textures[0];
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);
-		sprite.setSize(40, 40);
+		sprite.setSize(39, 39);
 		bodyDef.type = BodyDef.BodyType.StaticBody;
 		bodyDef.position.set((sprite.getX() + sprite.getWidth() / 2) / Constantes.PIXELS_TO_METERS,
 				(sprite.getY() + sprite.getHeight() / 2) / Constantes.PIXELS_TO_METERS);
