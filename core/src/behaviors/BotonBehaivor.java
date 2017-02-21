@@ -41,6 +41,8 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable{
 		}
 		
 		
+		
+		
 		if(!activado){
 		vecX = bolaBody.getLinearVelocity().x * -0.08f;
 		vecY = bolaBody.getLinearVelocity().y * -0.08f;

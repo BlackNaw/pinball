@@ -13,6 +13,7 @@ public class Constantes {
 	public static final float FUERZA_MAX_BUMPER=0.7f;
 	public static final int ANCHO_MURO_REJILLA=10;
 	public static final int IMPULSO_TRAMPILLA=50;
+	public static final long TIEMPO_SUPERBUMPER= 70; //en segundos centesimales
 
 
 }

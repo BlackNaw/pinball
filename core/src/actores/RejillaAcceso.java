@@ -14,18 +14,15 @@ public class RejillaAcceso implements IObservador, IObservable {
 	public ArrayList<IObservador> observadores = null;
 	public ArrayList<Rejilla> rejillas = null;
 	ArrayList<Muro> muros = null;
-	public boolean levantarMuro = false;
 
-	public RejillaAcceso(int numeroRejillas, World world, int posX, int posY, String color, boolean levantarMuro) {
+	public RejillaAcceso(int numeroRejillas, World world, int posX, int posY, String color) {
 		observadores = new ArrayList<IObservador>();
 		rejillas = new ArrayList<Rejilla>();
 		muros = new ArrayList<Muro>();
-		this.levantarMuro = levantarMuro;
 		crearElementos(numeroRejillas, world, posX, posY, color);
 	}
 
-	public RejillaAcceso(World world, ArrayList<Rejilla> rejillas, ArrayList<Muro> muros, boolean levantarMuro) {
-		this.levantarMuro = levantarMuro;
+	public RejillaAcceso(World world, ArrayList<Rejilla> rejillas, ArrayList<Muro> muros) {
 		this.muros = muros;
 		this.observadores = new ArrayList<IObservador>();
 		this.rejillas = rejillas;
@@ -64,11 +61,6 @@ public class RejillaAcceso implements IObservador, IObservable {
 		if (isNivelSuperado()) {
 			reiniciarRejillas();
 			notifyObservers();
-			if (levantarMuro) {
-				for (Muro muro : muros) {
-					((MuroBehaviors) muro.myBody.myBehavior).desactivar = false;
-				}
-			}
 		}
 	}
 

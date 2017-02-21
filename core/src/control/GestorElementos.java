@@ -14,9 +14,12 @@ import actores.BumperA;
 import actores.ConjuntoBotones;
 import actores.HUD;
 import actores.Muro;
+import actores.MuroDesague;
 import actores.MyActor;
+import actores.Puerta;
 import actores.Rejilla;
 import actores.RejillaAcceso;
+import actores.RejillaDesague;
 import actores.SuperBumper;
 import actores.Tablero;
 import actores.BotonesSuperBumper;
@@ -32,7 +35,8 @@ public class GestorElementos {
 		MyActor todosBotones;
 		MyActor botonesLaberinto;
 		HashMap<String, RejillaAcceso> rejillaAccceso;
-		Muro trampilla;
+		Puerta trampilla;
+		RejillaDesague desague;
 		
 		
 	
@@ -62,8 +66,8 @@ public class GestorElementos {
 		
 		//------ DAVID----//
 		rejillaAccceso = new HashMap<String, RejillaAcceso>();
-		rejillaAccceso.put("rejillaAcceso", new RejillaAcceso(3, world, 168, 575, "Amarillo", false));
-		rejillaAccceso.put("rejillaAccesoLab", new RejillaAcceso(2, world, 15, 450, "Verde", false));
+		rejillaAccceso.put("rejillaAcceso", new RejillaAcceso(3, world, 168, 575, "Amarillo"));
+		rejillaAccceso.put("rejillaAccesoLab", new RejillaAcceso(2, world, 15, 450, "Verde"));
 		//-- DAVID--//
 //		bumpers.add(new BumperA(world, 200, 500,rejillaAccceso.get("rejillaAcceso")));
 //		bumpers.add(new BumperA(world, 245, 425,rejillaAccceso.get("rejillaAcceso")));
@@ -78,21 +82,21 @@ public class GestorElementos {
 		bumpers.add(new BumperA(world, 65,525,rejillaAccceso.get("rejillaAccesoLab")));
 		
 		//-- DAVID--//
-		trampilla = new Muro(world, 254, 602, 30, 2, "bloqueo.png");
-		trampilla.setDesactivar(true);
+		trampilla = new Puerta(world, 254, 602, 30, 2, "bloqueo.png");
+		trampilla.setCerrar(false);
 		ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
 		rejillas.add(new Rejilla(world, 16, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 50, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 316, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 280, 136, "Azul"));
-		ArrayList<Muro> muros = new ArrayList<Muro>();
-		Muro muro = new Muro(world, 16, 120, 2, 20, "bloqueo.png");
-		muro.setImpulsar(true);
+		rejillaAccceso.put("rejillaDesague", new RejillaAcceso(world, rejillas, new ArrayList<Muro>()));
+		ArrayList<MuroDesague> muros = new ArrayList<MuroDesague>();
+		MuroDesague muro = new MuroDesague(world, 16, 132, 2, 20, "bloqueo.png");
 		muros.add(muro);
-		muro = new Muro(world, 316, 120, 2, 20, "bloqueo.png");
-		muro.setImpulsar(true);
+		muro = new MuroDesague(world, 316, 132, 2, 20, "bloqueo.png");
 		muros.add(muro);
-		rejillaAccceso.put("RejillaDesague", new RejillaAcceso(world, rejillas, muros, true));
+		desague = new RejillaDesague(muros);
+		rejillaAccceso.get("rejillaDesague").addObserver(desague);
 		//-- DAVID--//
 	}
 	
@@ -123,6 +127,9 @@ public class GestorElementos {
 			for (MyActor myActor : conjunto.getBotones()) {
 				stage.addActor(myActor); 
 			}
+		}
+		for (MuroDesague desague : this.desague.getMuros()) {
+			stage.addActor(desague);
 		}
 		
 		stage.addActor(botonesLaberinto);

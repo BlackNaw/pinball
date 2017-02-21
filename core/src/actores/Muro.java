@@ -7,7 +7,7 @@ import bodies.MuroBody;
 import fixturas.MuroFixture;
 import interfaces.IObservador;
 
-public class Muro extends MyActor implements IObservador {
+public class Muro extends MyActor {
 
 	boolean impulsar = false;
 
@@ -16,21 +16,6 @@ public class Muro extends MyActor implements IObservador {
 		myBody = new MuroBody(world, posX, posY, alto, ancho, tipoMuro);
 		myBody.myBehavior = new MuroBehaviors(myBody);
 		myFixture = new MuroFixture(myBody);
-	}
-
-	public void setImpulsar(boolean impulsar) {
-		((MuroBehaviors) myBody.myBehavior).impulso = impulsar;
-	}
-
-	@Override
-	public void update() {
-		if (((MuroBehaviors) myBody.myBehavior).impulso == true) {
-			setDesactivar(false);
-		}
-	}
-
-	public void setDesactivar(boolean activar) {
-		((MuroBehaviors) myBody.myBehavior).desactivar = activar;
 	}
 
 }

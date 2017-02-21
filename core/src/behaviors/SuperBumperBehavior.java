@@ -31,7 +31,7 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 
 			public void run() {
 				try {
-					Thread.sleep(50000);
+					Thread.sleep((Constantes.TIEMPO_SUPERBUMPER*1000));
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
