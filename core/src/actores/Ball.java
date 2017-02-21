@@ -22,7 +22,7 @@ public class Ball extends MyActor implements IObservador{
 		super(world, posX, posY);
 		this.world=world;
 		myBody = new BallBody(world, posX, posY);
-		myBody.myBehavior = new BallBehavior(myBody);
+		myBody.myBehavior = new BallBehavior(myBody,this,world);
 		myFixture = new BallFixture(myBody);
 	}
 
@@ -35,6 +35,7 @@ public class Ball extends MyActor implements IObservador{
 	
 	public void setStage(Stage stage){
 		this.stage=stage;
+		((BallBehavior)(myBody.myBehavior)).setStage(stage);
 	}
 
 }

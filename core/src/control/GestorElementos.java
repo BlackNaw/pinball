@@ -26,6 +26,7 @@ import actores.SuperBumper;
 import actores.Tablero;
 import actores.BotonesSuperBumper;
 import behaviors.BotonesSuperBumperBehavior;
+import comunes.Estados;
 import interfaces.IObservador;
 
 
@@ -43,7 +44,6 @@ public class GestorElementos {
 		
 	
 	public GestorElementos(World world) {
-		
 		ball=new Ball(world,360,200);
 		tablero=new Tablero(world, 0, 0);
 		hud=new HUD(world, Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight()-100);
@@ -144,7 +144,6 @@ public class GestorElementos {
 		stage.addActor(trampilla);
 		
 		((Ball)ball).setStage(stage);
-		
 		
 	}
 	

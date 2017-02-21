@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import bodies.MyBody;
 import comunes.Estados;
 
-public class PuertaBehaior extends MyBehavior{
+public class PuertaBehaior extends MyBehavior {
 
-	public boolean cerrar = false;	
+	public boolean cerrar = false;
 
 	public PuertaBehaior(MyBody myBody) {
 		super(myBody);
@@ -18,6 +18,8 @@ public class PuertaBehaior extends MyBehavior{
 	public void act(float delta) {
 		if (Estados.bolaEnJuego.getEstado()) {
 			cerrar = true;
+		}else {
+			cerrar=false;
 		}
 	}
 

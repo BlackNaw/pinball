@@ -1,6 +1,7 @@
 package control;
 
 import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import bodies.MyBody;
 import bodies.RejillaAccesoBody;
@@ -12,15 +13,10 @@ public class Logica extends ContactAdapter {
 
 	MyBody bodyA, bodyB;
 
-	public Logica() {
-
+	public Logica(Stage stage) {
 	}
 
 	public void act() {
-		if(!Estados.juegoTerminado.getEstado()){
-			//System.out.println("en juego");
-			
-		}
 	}
 
 	@Override
