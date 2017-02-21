@@ -13,8 +13,8 @@ public class BotonBody extends MyBody {
 	Texture activado;
 	public BotonBody(World world, float posX, float posY,float giro) {
 		super(world, posX, posY);
-		activado=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
-		desactivado=new Texture(Gdx.files.internal("Imagenes/Botones/botonVerde.png"));
+		activado=new Texture(Gdx.files.internal("Imagenes/Botones/botonVerde.png"));
+		desactivado=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
 		texture=activado;
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);

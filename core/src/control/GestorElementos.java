@@ -69,14 +69,9 @@ public class GestorElementos {
 		rejillaAccceso.put("rejillaAcceso", new RejillaAcceso(3, world, 168, 575, "Amarillo"));
 		rejillaAccceso.put("rejillaAccesoLab", new RejillaAcceso(2, world, 15, 450, "Verde"));
 		//-- DAVID--//
-//		bumpers.add(new BumperA(world, 200, 500,rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 245, 425,rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 150, 410,rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 150, 410,rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 80,530,rejillaAccceso.get("rejillaAccesoLab")));
 		
 		bumpers.add(new BumperA(world, 186, 519,rejillaAccceso.get("rejillaAcceso")));
-		bumpers.add(new BumperA(world, 245, 478,rejillaAccceso.get("rejillaAcceso")));
+		bumpers.add(new BumperA(world, 246, 478,rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 172, 442,rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 236, 398,rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 65,525,rejillaAccceso.get("rejillaAccesoLab")));

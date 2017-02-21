@@ -30,7 +30,7 @@ public class HUDBehavior extends MyBehavior implements IReiniciable {
 		myBody.sprite.draw(batch);
 		myBody.font.draw(batch, "Vidas: "+HUD.vidas,myBody.sprite.getX()+20,myBody.sprite.getY());
 		if(HUD.puntuacion<100000){
-			myBody.font.draw(batch, "Score: "+HUD.puntuacion,myBody.sprite.getX()+20,myBody.sprite.getY()-25);
+			myBody.font.draw(batch, "Score: \n"+HUD.puntuacion,myBody.sprite.getX()+20,myBody.sprite.getY()-25);
 		}else {
 		
 			myBody.font.draw(batch, "Score: "+String.valueOf(HUD.puntuacion).substring(0,String.valueOf(HUD.puntuacion).length()-3)+"K",myBody.sprite.getX()+20,myBody.sprite.getY()-25);

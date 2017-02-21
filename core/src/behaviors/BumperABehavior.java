@@ -61,7 +61,9 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 		vecY = (Math.abs(vecY) < fuerzaBumperA) ? vecY : fuerzaBumperA * (Math.abs(vecY) / vecY);
 
 		vecY = (vecY < (-0.4f)) ? -0.4f : vecY;
-
+		
+		vecX=(Math.abs(vecX)<0.05f)?vecX=0.5f:vecX;
+		vecY=(Math.abs(vecY)<0.05f)?vecY=0.5f:vecY;
 		HUD.puntuacion += puntuacion;
 
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);

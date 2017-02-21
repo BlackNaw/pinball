@@ -10,7 +10,7 @@ import comunes.Constantes;
 import fixturas.BallFixture;
 
 public class HUD extends MyActor {
-	public static Integer puntuacion=0;
+	public static long puntuacion=0;
 	public static Integer vidas=Constantes.NUMEROVIDAS;
 	
 	public HUD(World world, float posX, float posY) {
