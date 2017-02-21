@@ -16,6 +16,7 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	float vecX, vecY;
 	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER;
 	boolean activo = false;
+	boolean fuera=false;
 
 	public SuperBumperBehavior(MyBody myBody) {
 		super(myBody);
@@ -24,26 +25,31 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 
 	@Override
 	public void act(float delta) {
-		myBody.body.setAwake(activo);
-		myBody.body.setActive(activo);
-		
-		Thread hilo = new Thread(new Runnable() {
 
-			public void run() {
-				try {
-					Thread.sleep((Constantes.TIEMPO_SUPERBUMPER*1000));
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+		if (activo&&!fuera) {
+			myBody.body.setAwake(activo);
+			myBody.body.setActive(activo);
+			
+			Thread bumper = new Thread(new Runnable() {
+
+				public void run() {
+					try {
+						fuera=true;
+						Thread.sleep((Constantes.TIEMPO_SUPERBUMPER * 1000));
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					activo = false;
+					fuera=false;
+					myBody.body.setAwake(activo);
+					myBody.body.setActive(activo);
 				}
-				activo=false;
-				
-			}
-		});
-		hilo.start();
-		myBody.body.setAwake(activo);
-		myBody.body.setActive(activo);
-		
+			});
+			bumper.start();
+//			myBody.body.setAwake(activo);
+//			myBody.body.setActive(activo);
+		}
 
 	}
 

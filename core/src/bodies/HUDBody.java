@@ -14,8 +14,7 @@ public class HUDBody extends MyBody {
 	public HUDBody(World world, float posX, float posY) {
 		super(world, posX, posY);
 		texture = new Texture("Imagenes/HUD/efectoMarco.png");
-//		marcoInferior = new Texture("Imagenes/efectoMarcoVolteado.png");
-		this.font = new BitmapFont(Gdx.files.internal("Fuente/painball.fnt"));
+		this.font = new BitmapFont(Gdx.files.internal("Fuente/pinballAzul.fnt"));
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);
 		sprite.setSize(texture.getWidth()/2-50,texture.getHeight()/2);

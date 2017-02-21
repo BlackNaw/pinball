@@ -32,7 +32,7 @@ public class MuroDesagueBehaviors extends MyBehavior {
 	public void chocar(Body bolaBody) {
 		super.chocar(bolaBody);
 			desactivar = true;
-			bolaBody.applyLinearImpulse(new Vector2(0.1f, 0.9f), myBody.body.getWorldCenter(), true);
+			bolaBody.applyLinearImpulse(new Vector2(0.0f, 0.5f), myBody.body.getWorldCenter(), true);
 	}
 
 }

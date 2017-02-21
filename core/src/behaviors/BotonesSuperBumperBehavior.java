@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 
 import actores.ConjuntoBotones;
 import bodies.MyBody;
+import comunes.Constantes;
 import interfaces.IObservable;
 import interfaces.IObservador;
 import interfaces.IReiniciable;
@@ -14,6 +15,7 @@ import interfaces.IReiniciable;
 public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciable, IObservable {
 	ArrayList<ConjuntoBotones> conjuntoBotones;
 	public  ArrayList<IObservador> observadores;
+	public boolean fuera=false;
 
 	public BotonesSuperBumperBehavior(MyBody myBody, ArrayList<ConjuntoBotones> conjuntoBotones) {
 		super(myBody);
@@ -23,9 +25,28 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 
 	@Override
 	public void act(float delta) {
-		if (comprobarBotones()) {
+		if (comprobarBotones()&&!fuera) {
 			notifyObservers();
-			reiniciar();
+			
+			Thread bumper = new Thread(new Runnable() {
+
+				public void run() {
+					try {
+						fuera=true;
+						Thread.sleep((Constantes.TIEMPO_SUPERBUMPER * 1000));
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					reiniciar();
+					fuera=false;
+			}
+			});
+			bumper.start();
+			
+		
+			
+			
 		}
 
 	}
@@ -47,7 +68,6 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 
 	@Override
 	public void reiniciar() {
-		System.out.println("todos reiniciados");
 		for (ConjuntoBotones conjuntoBotones2 : conjuntoBotones) {
 			conjuntoBotones2.reiniciarConjuntoBotones();
 		}
