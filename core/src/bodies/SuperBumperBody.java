@@ -10,11 +10,13 @@ import comunes.Constantes;
 
 public class SuperBumperBody extends MyBody {
 	Texture iluminado;
+	Texture off;
 	public SuperBumperBody(World world, float posX, float posY) {
 		super(world, posX, posY);
+		off=new Texture(Gdx.files.internal("Imagenes/Puertas/Blanco/blancoOff.png"));
 		texture=new Texture(Gdx.files.internal("Imagenes/Bumpers/Nivel5/escudo.png"));
 		iluminado=new Texture(Gdx.files.internal("Imagenes/Bumpers/Nivel5/escudoIluminado.png"));
-		sprite = new Sprite(texture);
+		sprite = new Sprite(off);
 		sprite.setPosition(posX, posY);
 		sprite.setSize(115, 115);
 		bodyDef.type = BodyDef.BodyType.StaticBody;
@@ -31,6 +33,14 @@ public class SuperBumperBody extends MyBody {
 
 	public void iluminar() {
 		sprite.setTexture(iluminado);
+	}
+	
+	public void texturaOn(){
+		sprite.setTexture(texture);
+	}
+	
+public void texturaOff(){
+	sprite.setTexture(off);
 	}
 
 }

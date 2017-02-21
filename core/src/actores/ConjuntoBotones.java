@@ -43,8 +43,6 @@ public class ConjuntoBotones {
 			}
 		}
 		if(!notificado){
-			//TODO: aquí se iluminaría uno de los circulos del superbumper
-		System.out.println("conjunto activado");
 		notificado=true;
 		}
 		return true;

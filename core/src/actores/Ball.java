@@ -28,7 +28,6 @@ public class Ball extends MyActor implements IObservador{
 
 	@Override
 	public void update() {
-		System.out.println("nueva bola");
 		MyActor bola= new Ball(world, 200, 400);
 		stage.addActor(bola);
 	}

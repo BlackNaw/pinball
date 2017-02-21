@@ -17,6 +17,8 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER;
 	boolean activo = false;
 	boolean fuera=false;
+	
+	
 
 	public SuperBumperBehavior(MyBody myBody) {
 		super(myBody);
@@ -44,20 +46,18 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 					fuera=false;
 					myBody.body.setAwake(activo);
 					myBody.body.setActive(activo);
+					((SuperBumperBody)myBody).texturaOff();
 				}
 			});
 			bumper.start();
-//			myBody.body.setAwake(activo);
-//			myBody.body.setActive(activo);
 		}
 
 	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		if (activo)
 			myBody.sprite.draw(batch);
-
+			
 	}
 
 	@Override
@@ -95,6 +95,7 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	@Override
 	public void update() {
 		activo = true;
+		((SuperBumperBody)myBody).texturaOn();
 
 	}
 
