@@ -16,6 +16,7 @@ public class RejillaFixture extends MyFixture{
 		myBody.body.createFixture(fixtureDef);
 		shape.dispose();
 		myBody.body.setFixedRotation(false);
+		
 	}
 
 }

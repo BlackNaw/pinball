@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import actores.Ball;
 import actores.Boton;
 import actores.BumperA;
+import actores.ColisionadorIzq;
+import actores.Colisionadores;
 import actores.ConjuntoBotones;
 import actores.HUD;
 import actores.Muro;
@@ -37,7 +39,7 @@ public class GestorElementos {
 		HashMap<String, RejillaAcceso> rejillaAccceso;
 		Puerta trampilla;
 		RejillaDesague desague;
-		
+		Colisionadores colisionadores;
 		
 	
 	public GestorElementos(World world) {
@@ -45,6 +47,8 @@ public class GestorElementos {
 		ball=new Ball(world,360,200);
 		tablero=new Tablero(world, 0, 0);
 		hud=new HUD(world, Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight()-100);
+		
+		colisionadores=new Colisionadores(world);
 		
 		arrayBotonesLaberinto.add(new ConjuntoBotones(world,58, 467, -60,1.5f));
 		arrayBotonesLaberinto.add(new ConjuntoBotones(world,43,587, -58,1.5f));
@@ -125,6 +129,10 @@ public class GestorElementos {
 		}
 		for (MuroDesague desague : this.desague.getMuros()) {
 			stage.addActor(desague);
+		}
+		
+		for(MyActor colisionador: colisionadores.getColisionadores()){
+			stage.addActor(colisionador);
 		}
 		
 		stage.addActor(botonesLaberinto);

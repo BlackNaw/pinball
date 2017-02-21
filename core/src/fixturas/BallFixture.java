@@ -14,7 +14,7 @@ public class BallFixture extends MyFixture{
 		shape=new CircleShape();
 		shape.setRadius(myBody.sprite.getWidth() / 2 / Constantes.PIXELS_TO_METERS);
 		fixtureDef.shape = shape;
-		fixtureDef.density=1;
+		fixtureDef.density=1.2f;
 		myBody.body.createFixture(fixtureDef);
 		shape.dispose();
 		myBody.body.setFixedRotation(false);
