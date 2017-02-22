@@ -11,7 +11,7 @@ import interfaces.IChocable;
 
 public class BarraColisionadorBehavior extends MyBehavior {
 	float vecX, vecY;
-	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER-0.4f;
+	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER-0.3f;
 	boolean activado=false;
 
 	public BarraColisionadorBehavior(MyBody myBody) {

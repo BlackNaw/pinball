@@ -41,6 +41,10 @@ public class GestorElementos {
 		Puerta trampilla;
 		RejillaDesague desague;
 		Colisionadores colisionadores;
+		MuroDesague muro;
+		ArrayList<MuroDesague> muros = new ArrayList<MuroDesague>();
+		ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
+		
 		
 	
 	public GestorElementos(World world) {
@@ -83,14 +87,14 @@ public class GestorElementos {
 		//-- DAVID--//
 		trampilla = new Puerta(world, 254, 602, 30, 2, "bloqueo.png");
 		trampilla.setCerrar(false);
-		ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
+	
 		rejillas.add(new Rejilla(world, 16, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 50, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 316, 136, "Azul"));
 		rejillas.add(new Rejilla(world, 280, 136, "Azul"));
 		rejillaAccceso.put("rejillaDesague", new RejillaAcceso(world, rejillas, new ArrayList<Muro>()));
-		ArrayList<MuroDesague> muros = new ArrayList<MuroDesague>();
-		MuroDesague muro = new MuroDesague(world, 16, 132, 2, 20, "bloqueo.png");
+		
+		muro = new MuroDesague(world, 16, 132, 2, 20, "bloqueo.png");
 		muros.add(muro);
 		muro = new MuroDesague(world, 316, 132, 2, 20, "bloqueo.png");
 		muros.add(muro);
