@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Constantes {
 	public final static float PIXELS_TO_METERS = 100f;
-	public static final int FactorZoomCamara = 9;
+	public static final int FactorZoomCamara = /*9*/1;
 	public static final float GRAVEDAD_Y = -9.8f;
 //	public static final float GRAVEDAD_Y = -0f;
 	public static final int NUMEROVIDAS=3;
@@ -15,7 +15,7 @@ public class Constantes {
 	public static final int IMPULSO_TRAMPILLA=50;
 	public static final long TIEMPO_SUPERBUMPER= 30; //en segundos
 	
-	public static final int ANCHO_PANTALLA = 290;
+	public static final int ANCHO_PANTALLA = 390;
 	public static final double DISTANCIA_PARAR_OBJETO_AGUJERO_NEGRO = 0.2;
 	public static final double DISTANCIA_LANZAR_OBJETO_AGUJERO_NEGRO = 0.05;
 	public static final float[] DISTANCIA_AGUJERO_NEGRO = {0.5f,0.2f,0.1f,0.05f};

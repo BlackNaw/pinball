@@ -45,7 +45,7 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 				+ Math.pow(actorOne.getPosition().y - actorTwo.getPosition().y, 2));
 	}
 
-	private void paralizarObjeto(final Body myActor, double distanciaObjetos) {
+	private void paralizarObjeto(Body myActor, double distanciaObjetos) {
 		if (distanciaObjetos <= Constantes.DISTANCIA_LANZAR_OBJETO_AGUJERO_NEGRO) {
 			lanzarObjeto(myActor);
 		}

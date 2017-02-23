@@ -45,6 +45,10 @@ public class BallBehavior extends MyBehavior{
 	public void act(float delta) {
 		if ((myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) < 250) {
 			Estados.bolaEnJuego.setEstado(true);
+			Estados.bolaEnLanzador.setEstado(false);
+			
+		}else if ((myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS)<20) {
+				Estados.bolaEnLanzador.setEstado(true);
 		}
 		
 		myBody.sprite.setPosition(
@@ -57,7 +61,6 @@ public class BallBehavior extends MyBehavior{
 		}
 		if(pulsado){
 			impulso=(impulso<1.5f)?impulso:1.5f;
-			System.out.println(impulso);
 			myBody.body.applyLinearImpulse(new Vector2(0,impulso ),myBody.body.getWorldCenter(), true);
 			pulsado=false;
 			impulso=0;
