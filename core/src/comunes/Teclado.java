@@ -44,7 +44,7 @@ public class Teclado extends InputAdapter implements IObservable {
 		}
 		if (keycode == Keys.SPACE) {
 			for (Actor actor : stage.getActors()) {
-				if (actor.getClass().getSimpleName().contains("Ball") && !Estados.bolaEnJuego.getEstado()) {
+				if (actor.getClass().getSimpleName().contains("Ball") && !Estados.bolaEnJuego.getEstado()&&Estados.bolaEnLanzador.getEstado()) {
 					((BallBehavior)(((MyActor) actor).myBody.myBehavior)).setPulsado(true);
 				
 				}

@@ -45,10 +45,12 @@ public class BallBehavior extends MyBehavior{
 	public void act(float delta) {
 		if ((myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) < 250) {
 			Estados.bolaEnJuego.setEstado(true);
-			Estados.bolaEnLanzador.setEstado(false);
+			
 			
 		}else if ((myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS)<20) {
 				Estados.bolaEnLanzador.setEstado(true);
+		}else {
+			Estados.bolaEnLanzador.setEstado(false);
 		}
 		
 		myBody.sprite.setPosition(
