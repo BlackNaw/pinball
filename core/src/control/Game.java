@@ -34,13 +34,15 @@ public class Game implements Disposable{
 		batch = new SpriteBatch();
 		mycamera=new MyCamera();
 		stage=new Stage(mycamera.viewport,batch);
-		teclado=new Teclado();
-		Gdx.input.setInputProcessor(teclado);
+		
 		myDebug=new MyDebug();
-		teclado.addObserver(myDebug);
-		logica=new Logica(stage);
+		
+		logica=new Logica();
 		gestor=new GestorElementos(world);
 		gestor.anadirElementosStage(stage);
+		teclado=new Teclado(stage);
+		Gdx.input.setInputProcessor(teclado);
+		teclado.addObserver(myDebug);
 		this.world.setContactListener(logica);
 	}
 	

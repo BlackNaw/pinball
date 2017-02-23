@@ -13,7 +13,7 @@ public class Logica extends ContactAdapter {
 
 	MyBody bodyA, bodyB;
 
-	public Logica(Stage stage) {
+	public Logica() {
 	}
 
 	public void act() {

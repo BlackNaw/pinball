@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,11 +26,13 @@ import control.Logica;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
-public class BallBehavior extends MyBehavior {
+public class BallBehavior extends MyBehavior{
 	Stage stage;
 	Ball ball;
 	World world;
 	int contador=0;
+	boolean pulsado=false;
+	float impulso=0;
 	 ArrayList<Body> e;
 	public BallBehavior(MyBody myBody,Ball ball,World world, ArrayList<Body> e) {
 		super(myBody);
@@ -47,12 +51,21 @@ public class BallBehavior extends MyBehavior {
 				(myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) - myBody.sprite.getWidth() / 2,
 				(myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS) - myBody.sprite.getHeight() / 2);
 
-
-		if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-			myBody.body.applyLinearImpulse(new Vector2(0, 0.5f), myBody.body.getWorldCenter(), true);
+		//IMPULSO INICIAL
+		if(Gdx.input.isKeyPressed(Keys.SPACE)){
+			impulso+=0.01f;
 		}
-		
-		
+		if(pulsado){
+			impulso=(impulso<1.5f)?impulso:1.5f;
+			System.out.println(impulso);
+			myBody.body.applyLinearImpulse(new Vector2(0,impulso ),myBody.body.getWorldCenter(), true);
+			pulsado=false;
+			impulso=0;
+		}
+		//IMPULSO PARA DESBLOQUEO
+		if(Gdx.input.isKeyJustPressed(Keys.SPACE)&&Estados.bolaEnJuego.getEstado()){
+			myBody.body.applyLinearImpulse(new Vector2(0.01f,0.05F),myBody.body.getWorldCenter(), true);
+		}
 		//CONTROLA FIN DEL JUEGO
 		if((myBody.body.getPosition().y * Constantes.PIXELS_TO_METERS) < 15&&(myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) < 250){
 			contador=0;
@@ -77,6 +90,9 @@ public class BallBehavior extends MyBehavior {
 		
 
 	}
+	public void setPulsado(boolean pulsado){
+		this.pulsado=pulsado;
+	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
@@ -87,5 +103,6 @@ public class BallBehavior extends MyBehavior {
 	public void setStage(Stage stage){
 		this.stage=stage;
 	}
+
 
 }
