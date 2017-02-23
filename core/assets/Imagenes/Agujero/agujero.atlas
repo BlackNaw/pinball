@@ -6,28 +6,28 @@ repeat: none
 agujero
   rotate: false
   xy: 1, 1
-  size: 144, 144
-  orig: 144, 144
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 1
 agujero
   rotate: false
-  xy: 147, 1
-  size: 144, 144
-  orig: 144, 144
+  xy: 35, 1
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 2
 agujero
   rotate: false
-  xy: 293, 1
-  size: 144, 144
-  orig: 144, 144
+  xy: 69, 1
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 3
 agujero
   rotate: false
-  xy: 439, 1
-  size: 144, 144
-  orig: 144, 144
+  xy: 103, 1
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 4

@@ -1,6 +1,9 @@
 package actores;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -18,17 +21,20 @@ import interfaces.IObservador;
 public class Ball extends MyActor implements IObservador{
 	Stage stage;
 	World world;
-	public Ball(World world, float posX, float posY) {
+	 ArrayList<Body> e;
+	public Ball(World world, float posX, float posY, ArrayList<Body> e) {
 		super(world, posX, posY);
 		this.world=world;
+		this.e=e;
 		myBody = new BallBody(world, posX, posY);
-		myBody.myBehavior = new BallBehavior(myBody,this,world);
+		myBody.myBehavior = new BallBehavior(myBody,this,world,e);
 		myFixture = new BallFixture(myBody);
+		e.add(myBody.body);
 	}
 
 	@Override
 	public void update() {
-		MyActor bola= new Ball(world, 200, 400);
+		MyActor bola= new Ball(world, 200, 400,e);
 		stage.addActor(bola);
 	}
 	

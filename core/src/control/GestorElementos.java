@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import actores.AgujeroNegro;
 import actores.Ball;
 import actores.Boton;
 import actores.BumperA;
@@ -44,11 +46,13 @@ public class GestorElementos {
 		MuroDesague muro;
 		ArrayList<MuroDesague> muros = new ArrayList<MuroDesague>();
 		ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
+		ArrayList<AgujeroNegro> agujeroNegro;
+		ArrayList<Body> e = new ArrayList<Body>();
 		
 		
 	
 	public GestorElementos(World world) {
-		ball=new Ball(world,360,200);
+		ball=new Ball(world,360,200,e);
 		tablero=new Tablero(world, 0, 0);
 		hud=new HUD(world, Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight()-100);
 		
@@ -69,6 +73,12 @@ public class GestorElementos {
 		((BotonesSuperBumperBehavior)todosBotones.myBody.myBehavior).addObserver((IObservador) ball);
 		
 		((BotonesSuperBumperBehavior)todosBotones.myBody.myBehavior).addObserver((IObservador) superBumper.myBody.myBehavior);
+		
+		
+		e.add(ball.myBody.body);
+		agujeroNegro = new ArrayList<AgujeroNegro>();
+		agujeroNegro.add(new AgujeroNegro(world, 24, 250, e));
+		agujeroNegro.add(new AgujeroNegro(world, 301, 250, e));
 		
 		
 		
@@ -133,6 +143,10 @@ public class GestorElementos {
 		}
 		for (MuroDesague desague : this.desague.getMuros()) {
 			stage.addActor(desague);
+		}
+		
+		for (AgujeroNegro agujeroNegro2 : agujeroNegro) {
+			stage.addActor(agujeroNegro2);
 		}
 		
 		for(MyActor colisionador: colisionadores.getColisionadores()){

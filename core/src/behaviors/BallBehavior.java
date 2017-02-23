@@ -1,5 +1,7 @@
 package behaviors;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -27,10 +29,12 @@ public class BallBehavior extends MyBehavior {
 	Ball ball;
 	World world;
 	int contador=0;
-	public BallBehavior(MyBody myBody,Ball ball,World world) {
+	 ArrayList<Body> e;
+	public BallBehavior(MyBody myBody,Ball ball,World world, ArrayList<Body> e) {
 		super(myBody);
 		this.ball=ball;
 		this.world=world;
+		this.e=e;
 	}
 
 	@Override
@@ -63,7 +67,7 @@ public class BallBehavior extends MyBehavior {
 			}else if(HUD.vidas>0){
 				Estados.bolaEnJuego.setEstado(false);
 				HUD.vidas--;
-				stage.addActor(new Ball(world,360,200));
+				stage.addActor(new Ball(world,360,200,e));
 				ball.myBody.body.setActive(false);
 				ball.remove();
 			}else {
