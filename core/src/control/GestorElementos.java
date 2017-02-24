@@ -45,7 +45,7 @@ public class GestorElementos {
 	ArrayList<MuroDesague> muros = new ArrayList<MuroDesague>();
 	ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
 	ArrayList<AgujeroNegro> agujeroNegro;
-	ArrayList<Body> e = new ArrayList<Body>();
+	ArrayList<MyActor> e = new ArrayList<MyActor>();
 	MyActor flipperR,flipperL;
 
 	public GestorElementos(World world) {
@@ -75,7 +75,7 @@ public class GestorElementos {
 		((BotonesSuperBumperBehavior) todosBotones.myBody.myBehavior)
 				.addObserver((IObservador) superBumper.myBody.myBehavior);
 
-		e.add(ball.myBody.body);
+		e.add(ball);
 		agujeroNegro = new ArrayList<AgujeroNegro>();
 		agujeroNegro.add(new AgujeroNegro(world, 24, 250, e));
 		agujeroNegro.add(new AgujeroNegro(world, 301, 250, e));

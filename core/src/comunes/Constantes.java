@@ -15,10 +15,10 @@ public class Constantes {
 	
 	public static final int ANCHO_PANTALLA = 390;
 	public static final double DISTANCIA_PARAR_OBJETO_AGUJERO_NEGRO = 0.2;
-	public static final double DISTANCIA_LANZAR_OBJETO_AGUJERO_NEGRO = 0.05;
+//	public static final double DISTANCIA_LANZAR_OBJETO_AGUJERO_NEGRO = 0.05;
 	public static final float[] DISTANCIA_AGUJERO_NEGRO = {0.5f,0.2f,0.1f,0.05f};
 	public static final float[] ATRACCION_AGUJERO_NEGRO = {1f,8f,12f,100f};
-	public static final float VELOCIDAD_Y_LANZAMIENTO_OBJETO_AGUJERO_NEGRO = -0.1f;
+	public static final float VELOCIDAD_Y_LANZAMIENTO_OBJETO_AGUJERO_NEGRO = -4f;
 	
 	public static final float UPPER = 45;
 	public static final float LOWER = -15F;

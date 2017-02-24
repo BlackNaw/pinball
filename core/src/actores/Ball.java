@@ -14,16 +14,16 @@ import interfaces.IObservador;
 public class Ball extends MyActor implements IObservador {
 	Stage stage;
 	World world;
-	ArrayList<Body> e;
+	ArrayList<MyActor> e;
 
-	public Ball(World world, float posX, float posY, ArrayList<Body> e) {
+	public Ball(World world, float posX, float posY, ArrayList<MyActor> e) {
 		super(world, posX, posY);
 		this.world = world;
 		this.e = e;
 		myBody = new BallBody(world, posX, posY);
 		myBody.myBehavior = new BallBehavior(myBody, this, world, e);
 		myFixture = new BallFixture(myBody);
-		e.add(myBody.body);
+		e.add(this);
 	}
 
 	@Override

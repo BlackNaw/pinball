@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import actores.Ball;
 import actores.HUD;
+import actores.MyActor;
 import bodies.MyBody;
 import comunes.Constantes;
 import comunes.Estados;
@@ -24,9 +25,9 @@ public class BallBehavior extends MyBehavior {
 	int contador = 0;
 	boolean pulsado = false;
 	float impulso = 0;
-	ArrayList<Body> e;
+	ArrayList<MyActor> e;
 
-	public BallBehavior(MyBody myBody, Ball ball, World world, ArrayList<Body> e) {
+	public BallBehavior(MyBody myBody, Ball ball, World world, ArrayList<MyActor> e) {
 		super(myBody);
 		this.ball = ball;
 		this.world = world;

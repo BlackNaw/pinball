@@ -11,7 +11,7 @@ import fixturas.AgujeroNegroFixture;
 
 public class AgujeroNegro extends MyActor {
 
-	public AgujeroNegro(World world, float posX, float posY, ArrayList<Body> actores) {
+	public AgujeroNegro(World world, float posX, float posY, ArrayList<MyActor> actores) {
 		super(world, posX, posY);
 		myBody = new AgujeroNegroBody(world, posX, posY);
 		myBody.myBehavior = new AgujeroNegroBehaviors(myBody, actores);
