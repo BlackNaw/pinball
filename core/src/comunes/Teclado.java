@@ -12,6 +12,7 @@ import actores.MyActor;
 import behaviors.BallBehavior;
 import behaviors.FlipperBehaviorL;
 import behaviors.FlipperBehaviorR;
+import control.GestorElementos;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
@@ -21,6 +22,7 @@ public class Teclado extends InputAdapter implements IObservable {
 	public boolean space = false;
 	Stage stage;
 	float contador = 0;
+	boolean anadido = false;
 	FlipperBehaviorL flipperBehaviorL;
 	FlipperBehaviorR flipperBehaviorR;
 
@@ -46,9 +48,9 @@ public class Teclado extends InputAdapter implements IObservable {
 		if (keycode == Keys.M) {
 			flipperBehaviorR.down();
 		}
-	if(Estados.juegoTerminado.getEstado()&&keycode==Keys.R){
-		Estados.reiniciarJuego.setEstado(true);
-	}
+		if (Estados.juegoTerminado.getEstado() && keycode == Keys.R) {
+			Estados.reiniciarJuego.setEstado(true);
+		}
 
 		return true;
 	}
@@ -72,7 +74,6 @@ public class Teclado extends InputAdapter implements IObservable {
 		}
 		if (keycode == Keys.M) {
 			flipperBehaviorR.up();
-			
 		}
 
 		return true;

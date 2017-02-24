@@ -46,9 +46,9 @@ public class HUDBehavior extends MyBehavior {
 					myBody.sprite.getX() + 25, myBody.sprite.getY() + 80);
 		}
 		batch.draw(imagen,420,280,150,100);
-		batch.draw(imagen,420,50,130,60);
+		batch.draw(imagen,420,35,130,70);
 		font2.draw(batch, "Instrucciones:\n Lanzar Bola: Space\n Mover Flipper: Z M\n Reiniciar Juego: R",420,365);
-		font3.draw(batch, "Juego realizado por:\n Alumnos 2DAM\n IES Arroyo Harnina",420,100);
+		font3.draw(batch, "Juego realizado por:\n Alumnos 2DAM\n IES Arroyo Harnina\n Febrero,2017",420,100);
 
 	}
 
