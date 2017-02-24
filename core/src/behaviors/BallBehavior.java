@@ -43,6 +43,7 @@ public class BallBehavior extends MyBehavior{
 
 	@Override
 	public void act(float delta) {
+		
 		if ((myBody.body.getPosition().x * Constantes.PIXELS_TO_METERS) < 250) {
 			Estados.bolaEnJuego.setEstado(true);
 			
@@ -60,8 +61,7 @@ public class BallBehavior extends MyBehavior{
 		//IMPULSO INICIAL
 		if(Gdx.input.isKeyPressed(Keys.SPACE)){
 			impulso+=0.01f;
-		}
-		if(pulsado){
+		}else if(pulsado&&!Estados.bolaEnJuego.getEstado()){
 			impulso=(impulso<1.5f)?impulso:1.5f;
 			myBody.body.applyLinearImpulse(new Vector2(0,impulso ),myBody.body.getWorldCenter(), true);
 			pulsado=false;

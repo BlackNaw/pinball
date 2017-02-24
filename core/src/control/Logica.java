@@ -39,8 +39,8 @@ public class Logica extends ContactAdapter {
 			bodyA.myBehavior.chocar(bodyB.body);
 
 		}
-
 	}
+
 	
 	
 	@Override

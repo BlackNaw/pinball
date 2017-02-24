@@ -29,8 +29,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		world.step(1f / 60f, 6, 2);
-		batch.begin();
-		batch.end();
+		
 		game.act();
 		game.render();
 

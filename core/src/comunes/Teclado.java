@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 
 import actores.MyActor;
 import behaviors.BallBehavior;
+import behaviors.FlipperBehaviorL;
+import behaviors.FlipperBehaviorR;
 import debug.MyDebug;
 import interfaces.IObservable;
 import interfaces.IObservador;
@@ -23,16 +25,31 @@ public class Teclado extends InputAdapter implements IObservable {
 	public boolean space = false;
 	Stage stage;
 	float contador = 0;
+	FlipperBehaviorL flipperBehaviorL;
+	FlipperBehaviorR flipperBehaviorR;
 
 	public Teclado(Stage stage) {
 		observadores = new ArrayList<IObservador>();
 		this.stage = stage;
+		for (Actor actor : stage.getActors()) {
+			if (actor.getClass().getSimpleName().contains("Flipper")) {
+				if (((((MyActor) actor).myBody.myBehavior)).getClass().getSimpleName().contains("L"))
+					flipperBehaviorL = ((FlipperBehaviorL) (((MyActor) actor).myBody.myBehavior));
+				if (((((MyActor) actor).myBody.myBehavior)).getClass().getSimpleName().contains("R"))
+					flipperBehaviorR = ((FlipperBehaviorR) (((MyActor) actor).myBody.myBehavior));
+			}
+		}
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
 		comprobarCombinacion(keycode);
-		
+		if (keycode == Keys.Z) {
+			flipperBehaviorL.up();
+		}
+		if (keycode == Keys.M) {
+			flipperBehaviorR.down();
+		}
 
 		return true;
 	}
@@ -44,11 +61,17 @@ public class Teclado extends InputAdapter implements IObservable {
 		}
 		if (keycode == Keys.SPACE) {
 			for (Actor actor : stage.getActors()) {
-				if (actor.getClass().getSimpleName().contains("Ball") && !Estados.bolaEnJuego.getEstado()&&Estados.bolaEnLanzador.getEstado()) {
-					((BallBehavior)(((MyActor) actor).myBody.myBehavior)).setPulsado(true);
-				
+				if (actor.getClass().getSimpleName().contains("Ball")) {
+					((BallBehavior) (((MyActor) actor).myBody.myBehavior)).setPulsado(true);
 				}
 			}
+		}
+		if (keycode == Keys.Z) {
+			flipperBehaviorL.down();
+		}
+		if (keycode == Keys.M) {
+			flipperBehaviorR.up();
+			
 		}
 
 		return true;
