@@ -79,7 +79,7 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					reiniciar();
+					myReinicio();
 					fuera = false;
 				}
 			});
@@ -109,7 +109,7 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 
 		}
 		if (activado) {
-			reiniciar();
+			myReinicio();
 			activados[contador++] = true;
 			if (contador < activados.length) {
 				activado = false;
@@ -127,10 +127,17 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 
 	@Override
 	public void reiniciar() {
+		contador=0;
+		for (int i = 0; i < activados.length; i++) {
+			activados[i] = false;
+		}
+
+	}
+	
+	public void myReinicio(){
 		for (ConjuntoBotones conjuntoBotones2 : conjuntoBotones) {
 			conjuntoBotones2.reiniciarConjuntoBotones();
 		}
-
 	}
 
 	@Override

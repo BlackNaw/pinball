@@ -46,6 +46,9 @@ public class Teclado extends InputAdapter implements IObservable {
 		if (keycode == Keys.M) {
 			flipperBehaviorR.down();
 		}
+	if(Estados.juegoTerminado.getEstado()&&keycode==Keys.R){
+		Estados.reiniciarJuego.setEstado(true);
+	}
 
 		return true;
 	}

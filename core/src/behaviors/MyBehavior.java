@@ -5,8 +5,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 import bodies.MyBody;
 import interfaces.IChocable;
+import interfaces.IReiniciable;
 
-public abstract class MyBehavior implements IChocable {
+public abstract class MyBehavior implements IChocable,IReiniciable {
 	MyBody myBody;
 
 	public MyBehavior(MyBody myBody) {
@@ -28,5 +29,8 @@ public abstract class MyBehavior implements IChocable {
 		// TODO Auto-generated method stub
 
 	}
-
+	@Override
+	public void reiniciar(){
+		
+	}
 }

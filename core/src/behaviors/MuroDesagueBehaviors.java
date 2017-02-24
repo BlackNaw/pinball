@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
 import bodies.MyBody;
+import comunes.Constantes;
 
 public class MuroDesagueBehaviors extends MyBehavior {
 	float impulsoX = 0;
@@ -32,8 +33,8 @@ public class MuroDesagueBehaviors extends MyBehavior {
 	public void chocar(Body bolaBody) {
 		super.chocar(bolaBody);
 		desactivar = true;
-		impulsoX = (myBody.body.getPosition().x < 150) ? 0.1f : -0.3f;
-		bolaBody.applyLinearImpulse(new Vector2(impulsoX, 0.5f), myBody.body.getWorldCenter(), true);
+		impulsoX = (myBody.body.getPosition().x*Constantes.PIXELS_TO_METERS < 150) ? 0.8f : -0.8f;
+		bolaBody.applyLinearImpulse(new Vector2(impulsoX, 2f), myBody.body.getWorldCenter(), true);
 	}
 
 }

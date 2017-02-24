@@ -1,7 +1,7 @@
 package comunes;
 
 public enum Estados {
-	juegoTerminado(false), bolaEnLanzador(true), bolaEnJuego(false);
+	juegoTerminado(false), bolaEnLanzador(true), bolaEnJuego(false),reiniciarJuego(false);
 
 	boolean estado;
 

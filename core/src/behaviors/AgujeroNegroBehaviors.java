@@ -104,4 +104,5 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 		batch.draw(textureRegion, x, y);
 	}
 
+
 }

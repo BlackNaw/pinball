@@ -95,5 +95,10 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 		((SuperBumperBody) myBody).texturaOn();
 
 	}
+	
+	@Override
+	public void reiniciar() {
+		activo=false;
+	}
 
 }

@@ -11,7 +11,7 @@ import interfaces.IObservable;
 import interfaces.IObservador;
 import interfaces.IReiniciable;
 
-public class TodosBotonesBehavior extends MyBehavior implements IReiniciable, IObservable {
+public class TodosBotonesBehavior extends MyBehavior implements IObservable {
 	ArrayList<ConjuntoBotones> conjuntoBotones;
 	public static ArrayList<IObservador> observadores;
 
@@ -47,7 +47,6 @@ public class TodosBotonesBehavior extends MyBehavior implements IReiniciable, IO
 
 	@Override
 	public void reiniciar() {
-		System.out.println("todos reiniciados");
 		for (ConjuntoBotones conjuntoBotones2 : conjuntoBotones) {
 			conjuntoBotones2.reiniciarConjuntoBotones();
 		}

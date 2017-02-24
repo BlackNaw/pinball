@@ -88,8 +88,10 @@ public class GestorElementos {
 
 		bumpers.add(new BumperA(world, 186, 514, rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 246, 478, rejillaAccceso.get("rejillaAcceso")));
-		bumpers.add(new BumperA(world, 172, 442, rejillaAccceso.get("rejillaAcceso")));
-		bumpers.add(new BumperA(world, 236, 398, rejillaAccceso.get("rejillaAcceso")));
+//		bumpers.add(new BumperA(world, 172, 442, rejillaAccceso.get("rejillaAcceso")));
+		bumpers.add(new BumperA(world, 150, 430, rejillaAccceso.get("rejillaAcceso")));
+//		bumpers.add(new BumperA(world, 236, 398, rejillaAccceso.get("rejillaAcceso")));
+		bumpers.add(new BumperA(world, 220, 380, rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 65, 525, rejillaAccceso.get("rejillaAccesoLab")));
 
 		// -- DAVID--//

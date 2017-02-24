@@ -101,5 +101,13 @@ public class BallBehavior extends MyBehavior {
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
+	
+	@Override
+	public void reiniciar() {
+		Estados.bolaEnJuego.setEstado(false);
+		stage.addActor(new Ball(world, 360, 200, e));
+		ball.myBody.body.setActive(false);
+		ball.remove();
+	}
 
 }
