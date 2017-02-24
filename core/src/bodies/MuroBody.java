@@ -9,7 +9,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import comunes.Constantes;
 
 public class MuroBody extends MyBody {
-	
+
 	public MuroBody(World world, float posX, float posY, int alto, int ancho, String tipoMuro) {
 		super(world, posX, posY);
 		texture = new Texture(Gdx.files.internal("Imagenes/Muros/" + tipoMuro));

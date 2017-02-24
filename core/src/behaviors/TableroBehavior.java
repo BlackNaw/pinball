@@ -1,12 +1,10 @@
 package behaviors;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.physics.box2d.Body;
 
-import actores.Ball;
 import bodies.MyBody;
 
-public class TableroBehavior extends MyBehavior{
+public class TableroBehavior extends MyBehavior {
 
 	public TableroBehavior(MyBody myBody) {
 		super(myBody);
@@ -21,8 +19,7 @@ public class TableroBehavior extends MyBehavior{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		myBody.sprite.draw(batch);
-		
+
 	}
-	
 
 }

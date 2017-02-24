@@ -20,48 +20,48 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 	boolean[] activados = new boolean[6];
 	int contador = 0;
 	boolean activado = true;
-	
-	Texture[] texturesActivado=new Texture[6];
-	Texture[] texturesDesactivado=new Texture[6];
-	
-	int[][] posiciones=new int[6][2];
+
+	Texture[] texturesActivado = new Texture[6];
+	Texture[] texturesDesactivado = new Texture[6];
+
+	int[][] posiciones = new int[6][2];
 
 	public BotonesSuperBumperBehavior(MyBody myBody, ArrayList<ConjuntoBotones> conjuntoBotones) {
 		super(myBody);
 		this.conjuntoBotones = conjuntoBotones;
 		observadores = new ArrayList<IObservador>();
-		
-		texturesDesactivado[0]=new Texture(Gdx.files.internal("Imagenes/Puertas/Rojo/puertaOff.png"));
-		texturesDesactivado[1]=new Texture(Gdx.files.internal("Imagenes/Puertas/Verde/puertaOff.png"));
-		texturesDesactivado[2]=new Texture(Gdx.files.internal("Imagenes/Puertas/Azul/puertaOff.png"));
-		texturesDesactivado[3]=new Texture(Gdx.files.internal("Imagenes/Puertas/Amarillo/puertaOff.png"));
-		texturesDesactivado[4]=new Texture(Gdx.files.internal("Imagenes/Puertas/Rosa/puertaOff.png"));
-		texturesDesactivado[5]=new Texture(Gdx.files.internal("Imagenes/Puertas/Naranja/puertaOff.png"));
-		
-		texturesActivado[0]=new Texture(Gdx.files.internal("Imagenes/Puertas/Rojo/puertaOn.png"));
-		texturesActivado[1]=new Texture(Gdx.files.internal("Imagenes/Puertas/Verde/puertaOn.png"));
-		texturesActivado[2]=new Texture(Gdx.files.internal("Imagenes/Puertas/Azul/puertaOn.png"));
-		texturesActivado[3]=new Texture(Gdx.files.internal("Imagenes/Puertas/Amarillo/puertaOn.png"));
-		texturesActivado[4]=new Texture(Gdx.files.internal("Imagenes/Puertas/Rosa/puertaOn.png"));
-		texturesActivado[5]=new Texture(Gdx.files.internal("Imagenes/Puertas/Naranja/puertaOn.png"));
-		
-		posiciones[0][0]=167;
-		posiciones[0][1]=338;
-		posiciones[1][0]=242;
-		posiciones[1][1]=296;
-		posiciones[2][0]=241;
-		posiciones[2][1]=210;
-		posiciones[3][0]=167;
-		posiciones[3][1]=168;
-		posiciones[4][0]=94;
-		posiciones[4][1]=210;
-		posiciones[5][0]=95;
-		posiciones[5][1]=296;
-		
+
+		texturesDesactivado[0] = new Texture(Gdx.files.internal("Imagenes/Puertas/Rojo/puertaOff.png"));
+		texturesDesactivado[1] = new Texture(Gdx.files.internal("Imagenes/Puertas/Verde/puertaOff.png"));
+		texturesDesactivado[2] = new Texture(Gdx.files.internal("Imagenes/Puertas/Azul/puertaOff.png"));
+		texturesDesactivado[3] = new Texture(Gdx.files.internal("Imagenes/Puertas/Amarillo/puertaOff.png"));
+		texturesDesactivado[4] = new Texture(Gdx.files.internal("Imagenes/Puertas/Rosa/puertaOff.png"));
+		texturesDesactivado[5] = new Texture(Gdx.files.internal("Imagenes/Puertas/Naranja/puertaOff.png"));
+
+		texturesActivado[0] = new Texture(Gdx.files.internal("Imagenes/Puertas/Rojo/puertaOn.png"));
+		texturesActivado[1] = new Texture(Gdx.files.internal("Imagenes/Puertas/Verde/puertaOn.png"));
+		texturesActivado[2] = new Texture(Gdx.files.internal("Imagenes/Puertas/Azul/puertaOn.png"));
+		texturesActivado[3] = new Texture(Gdx.files.internal("Imagenes/Puertas/Amarillo/puertaOn.png"));
+		texturesActivado[4] = new Texture(Gdx.files.internal("Imagenes/Puertas/Rosa/puertaOn.png"));
+		texturesActivado[5] = new Texture(Gdx.files.internal("Imagenes/Puertas/Naranja/puertaOn.png"));
+
+		posiciones[0][0] = 167;
+		posiciones[0][1] = 338;
+		posiciones[1][0] = 242;
+		posiciones[1][1] = 296;
+		posiciones[2][0] = 241;
+		posiciones[2][1] = 210;
+		posiciones[3][0] = 167;
+		posiciones[3][1] = 168;
+		posiciones[4][0] = 94;
+		posiciones[4][1] = 210;
+		posiciones[5][0] = 95;
+		posiciones[5][1] = 296;
+
 		for (int i = 0; i < activados.length; i++) {
-			activados[i]=false;
+			activados[i] = false;
 		}
-		
+
 	}
 
 	@Override
@@ -92,13 +92,13 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		for (int i = 0; i < activados.length; i++) {
-			if(activados[i]){
-				batch.draw(texturesActivado[i], posiciones[i][0],posiciones[i][1],24,24);
-			}else{
-				batch.draw(texturesDesactivado[i],posiciones[i][0],posiciones[i][1],24,24);
+			if (activados[i]) {
+				batch.draw(texturesActivado[i], posiciones[i][0], posiciones[i][1], 24, 24);
+			} else {
+				batch.draw(texturesDesactivado[i], posiciones[i][0], posiciones[i][1], 24, 24);
 			}
 		}
-		
+
 	}
 
 	private boolean comprobarBotones() {
@@ -113,10 +113,10 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 			activados[contador++] = true;
 			if (contador < activados.length) {
 				activado = false;
-			}else{
-				contador=0;
+			} else {
+				contador = 0;
 				for (int i = 0; i < activados.length; i++) {
-					activados[i]=false;
+					activados[i] = false;
 				}
 			}
 

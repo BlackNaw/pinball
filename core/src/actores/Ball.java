@@ -2,46 +2,39 @@ package actores;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import behaviors.BallBehavior;
-import behaviors.MyBehavior;
-import behaviors.BotonesSuperBumperBehavior;
 import bodies.BallBody;
-import control.Logica;
 import fixturas.BallFixture;
-import fixturas.MyFixture;
-import interfaces.IObservable;
 import interfaces.IObservador;
 
-public class Ball extends MyActor implements IObservador{
+public class Ball extends MyActor implements IObservador {
 	Stage stage;
 	World world;
-	 ArrayList<Body> e;
+	ArrayList<Body> e;
+
 	public Ball(World world, float posX, float posY, ArrayList<Body> e) {
 		super(world, posX, posY);
-		this.world=world;
-		this.e=e;
+		this.world = world;
+		this.e = e;
 		myBody = new BallBody(world, posX, posY);
-		myBody.myBehavior = new BallBehavior(myBody,this,world,e);
+		myBody.myBehavior = new BallBehavior(myBody, this, world, e);
 		myFixture = new BallFixture(myBody);
 		e.add(myBody.body);
 	}
 
 	@Override
 	public void update() {
-		MyActor bola= new Ball(world, 200, 400,e);
+		MyActor bola = new Ball(world, 200, 400, e);
 		stage.addActor(bola);
 	}
-	
-	
-	public void setStage(Stage stage){
-		this.stage=stage;
-		((BallBehavior)(myBody.myBehavior)).setStage(stage);
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+		((BallBehavior) (myBody.myBehavior)).setStage(stage);
 	}
 
 }

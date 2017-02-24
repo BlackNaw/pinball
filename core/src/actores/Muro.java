@@ -5,7 +5,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import behaviors.MuroBehaviors;
 import bodies.MuroBody;
 import fixturas.MuroFixture;
-import interfaces.IObservador;
 
 public class Muro extends MyActor {
 

@@ -12,7 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import comunes.Constantes;
 
 public class BallBody extends MyBody {
-	
+
 	public BallBody(World world, float posX, float posY) {
 		super(world, posX, posY);
 		textureMapa = new TextureAtlas(Gdx.files.internal("bola.atlas"));

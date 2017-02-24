@@ -18,9 +18,9 @@ public class MuroBehaviors extends MyBehavior {
 
 	@Override
 	public void act(float delta) {
-//		if(Estados.bolaEnJuego.getEstado()){
-//			desactivar=false;
-//		}
+		// if(Estados.bolaEnJuego.getEstado()){
+		// desactivar=false;
+		// }
 
 	}
 
@@ -36,7 +36,8 @@ public class MuroBehaviors extends MyBehavior {
 	}
 
 	/**
-	 * Si tiene impulso se le aplica el impulso(valga la redundancia) y se desactiva el muro
+	 * Si tiene impulso se le aplica el impulso(valga la redundancia) y se
+	 * desactiva el muro
 	 */
 	@Override
 	public void chocar(Body bolaBody) {
@@ -46,6 +47,5 @@ public class MuroBehaviors extends MyBehavior {
 			bolaBody.applyLinearImpulse(new Vector2(0.1f, 0.9f), myBody.body.getWorldCenter(), true);
 		}
 	}
-
 
 }

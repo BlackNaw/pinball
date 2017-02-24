@@ -1,7 +1,5 @@
 package behaviors;
 
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -37,9 +35,9 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 
 	@Override
 	public void chocar(Body bolaBody) {
-		
-		Thread hilo=new Thread(new Runnable() {
-			
+
+		Thread hilo = new Thread(new Runnable() {
+
 			public void run() {
 				((BumperABody) myBody).iluminar(nivel);
 				try {
@@ -48,12 +46,11 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				((BumperABody) myBody).cambiarTexture(nivel);				
+				((BumperABody) myBody).cambiarTexture(nivel);
 			}
 		});
 		hilo.start();
-		
-		
+
 		vecX = bolaBody.getLinearVelocity().x * -0.08f;
 		vecY = bolaBody.getLinearVelocity().y * -0.08f;
 
@@ -61,16 +58,14 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 		vecY = (Math.abs(vecY) < fuerzaBumperA) ? vecY : fuerzaBumperA * (Math.abs(vecY) / vecY);
 
 		vecY = (vecY < (-0.4f)) ? -0.4f : vecY;
-		
-		vecX=(Math.abs(vecX)<0.05f)?vecX=0.5f:vecX;
-		vecY=(Math.abs(vecY)<0.05f)?vecY=0.5f:vecY;
-		
-		
-		
+
+		vecX = (Math.abs(vecX) < 0.05f) ? vecX = 0.5f : vecX;
+		vecY = (Math.abs(vecY) < 0.05f) ? vecY = 0.5f : vecY;
+
 		HUD.puntuacion += puntuacion;
 
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
-		
+
 	}
 
 	@Override
@@ -80,8 +75,5 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 			((BumperABody) myBody).cambiarTexture(++nivel);
 
 	}
-	
-	
-	
 
 }

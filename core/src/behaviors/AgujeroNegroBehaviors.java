@@ -7,10 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.GLVersion.Type;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 import bodies.AgujeroNegroBody;
 import bodies.MyBody;
@@ -84,7 +82,7 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		Animation animation = ((AgujeroNegroBody) myBody).animacion;
+		Animation<?> animation = ((AgujeroNegroBody) myBody).animacion;
 		float x = myBody.sprite.getX();
 		float y = myBody.sprite.getY();
 		elapsedTime += Gdx.graphics.getDeltaTime();

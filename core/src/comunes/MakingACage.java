@@ -10,12 +10,11 @@ public class MakingACage {
 
 	private Body ground, ceiling, leftWall, rightWall;
 
-
-	public MakingACage(World world,float inferiorMargin, float Width, float Height, float scale) {
+	public MakingACage(World world, float inferiorMargin, float Width, float Height, float scale) {
 
 		Width /= scale;
 		Height /= scale;
-		
+
 		// body definition
 		BodyDef bodyDef2 = new BodyDef();
 		bodyDef2.type = BodyDef.BodyType.StaticBody;
@@ -51,11 +50,9 @@ public class MakingACage {
 
 		edgeShape.dispose();
 	}
-	
-	
-	
-	public void destroi(){
-		World world=ground.getWorld();
+
+	public void destroi() {
+		World world = ground.getWorld();
 
 		world.destroyBody(ground);
 		world.destroyBody(ceiling);

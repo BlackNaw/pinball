@@ -3,13 +3,8 @@ package behaviors;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
-import actores.Boton;
 import actores.HUD;
-import actores.MyActor;
-import bodies.BallBody;
 import bodies.BotonBody;
 import bodies.MyBody;
 import comunes.Constantes;
@@ -48,8 +43,8 @@ public class BotonBehaivor extends MyBehavior implements IReiniciable {
 			vecX = (Math.abs(vecX) < fuerzaBumperA) ? vecX : fuerzaBumperA * (Math.abs(vecX) / vecX);
 			vecY = (Math.abs(vecY) < fuerzaBumperA) ? vecY : fuerzaBumperA * (Math.abs(vecY) / vecY);
 
-			if(myBody.sprite.getRotation()==0){
-				vecX=Math.abs(vecX)-0.2f;
+			if (myBody.sprite.getRotation() == 0) {
+				vecX = Math.abs(vecX) - 0.2f;
 			}
 			bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
 		}

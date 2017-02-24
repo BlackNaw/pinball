@@ -2,18 +2,14 @@ package comunes;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 
 import actores.MyActor;
 import behaviors.BallBehavior;
-import debug.MyDebug;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
@@ -32,7 +28,6 @@ public class Teclado extends InputAdapter implements IObservable {
 	@Override
 	public boolean keyDown(int keycode) {
 		comprobarCombinacion(keycode);
-		
 
 		return true;
 	}
@@ -44,9 +39,10 @@ public class Teclado extends InputAdapter implements IObservable {
 		}
 		if (keycode == Keys.SPACE) {
 			for (Actor actor : stage.getActors()) {
-				if (actor.getClass().getSimpleName().contains("Ball") && !Estados.bolaEnJuego.getEstado()&&Estados.bolaEnLanzador.getEstado()) {
-					((BallBehavior)(((MyActor) actor).myBody.myBehavior)).setPulsado(true);
-				
+				if (actor.getClass().getSimpleName().contains("Ball") && !Estados.bolaEnJuego.getEstado()
+						&& Estados.bolaEnLanzador.getEstado()) {
+					((BallBehavior) (((MyActor) actor).myBody.myBehavior)).setPulsado(true);
+
 				}
 			}
 		}

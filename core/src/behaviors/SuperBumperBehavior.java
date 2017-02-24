@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
 import actores.HUD;
-import bodies.BumperABody;
 import bodies.MyBody;
 import bodies.SuperBumperBody;
 import comunes.Constantes;
@@ -16,9 +15,7 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	float vecX, vecY;
 	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER;
 	boolean activo = false;
-	boolean fuera=false;
-	
-	
+	boolean fuera = false;
 
 	public SuperBumperBehavior(MyBody myBody) {
 		super(myBody);
@@ -28,25 +25,25 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	@Override
 	public void act(float delta) {
 
-		if (activo&&!fuera) {
+		if (activo && !fuera) {
 			myBody.body.setAwake(activo);
 			myBody.body.setActive(activo);
-			
+
 			Thread bumper = new Thread(new Runnable() {
 
 				public void run() {
 					try {
-						fuera=true;
+						fuera = true;
 						Thread.sleep((Constantes.TIEMPO_SUPERBUMPER * 1000));
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					activo = false;
-					fuera=false;
+					fuera = false;
 					myBody.body.setAwake(activo);
 					myBody.body.setActive(activo);
-					((SuperBumperBody)myBody).texturaOff();
+					((SuperBumperBody) myBody).texturaOff();
 				}
 			});
 			bumper.start();
@@ -56,8 +53,8 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-			myBody.sprite.draw(batch);
-			
+		myBody.sprite.draw(batch);
+
 	}
 
 	@Override
@@ -95,7 +92,7 @@ public class SuperBumperBehavior extends MyBehavior implements IObservador {
 	@Override
 	public void update() {
 		activo = true;
-		((SuperBumperBody)myBody).texturaOn();
+		((SuperBumperBody) myBody).texturaOn();
 
 	}
 

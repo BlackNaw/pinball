@@ -5,25 +5,22 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
-import actores.Rejilla;
 import comunes.Constantes;
 import fixturas.ISensor;
 import interfaces.IObservable;
 import interfaces.IObservador;
 
-public class RejillaBody extends MyBody implements ISensor, IObservable{
+public class RejillaBody extends MyBody implements ISensor, IObservable {
 
 	public ArrayList<IObservador> observadores = null;
 	private StringBuilder ruta = new StringBuilder("Imagenes/Puertas/");
 	private Texture rejillaActiva = null;
 	private Texture rejillaDesactivada = null;
 	public boolean activa = false;
-	
+
 	public RejillaBody(World world, float posX, float posY, String color) {
 		super(world, posX, posY);
 		observadores = new ArrayList<IObservador>();
@@ -45,22 +42,21 @@ public class RejillaBody extends MyBody implements ISensor, IObservable{
 		cambiarColor();
 		notifyObservers();
 	}
-	
+
 	public boolean isActivo() {
 		return activa;
 	}
 
-	
 	public void cambiarColor() {
 		if (activa) {
 			sprite.setTexture(rejillaDesactivada);
 			activa = false;
-		}else {
+		} else {
 			sprite.setTexture(rejillaActiva);
 			activa = true;
 		}
 	}
-	
+
 	@Override
 	public void addObserver(IObservador observador) {
 		observadores.add(observador);

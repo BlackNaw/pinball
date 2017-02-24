@@ -18,8 +18,8 @@ public class PuertaBehaior extends MyBehavior {
 	public void act(float delta) {
 		if (Estados.bolaEnJuego.getEstado()) {
 			cerrar = true;
-		}else {
-			cerrar=false;
+		} else {
+			cerrar = false;
 		}
 	}
 
