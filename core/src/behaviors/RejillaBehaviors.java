@@ -1,12 +1,10 @@
 package behaviors;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.physics.box2d.Body;
 
-import actores.Rejilla;
 import bodies.MyBody;
 
-public class RejillaBehaviors extends MyBehavior{
+public class RejillaBehaviors extends MyBehavior {
 
 	public RejillaBehaviors(MyBody myBody) {
 		super(myBody);
@@ -15,7 +13,7 @@ public class RejillaBehaviors extends MyBehavior{
 
 	@Override
 	public void act(float delta) {
-		
+
 	}
 
 	@Override

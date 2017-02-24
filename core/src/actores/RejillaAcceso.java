@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.physics.box2d.World;
 
-import behaviors.MuroBehaviors;
 import bodies.RejillaBody;
 import interfaces.IObservable;
 import interfaces.IObservador;

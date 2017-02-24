@@ -10,10 +10,10 @@ public class Tablero extends MyActor {
 
 	public Tablero(World world, float posX, float posY) {
 		super(world, posX, posY);
-		myBody=new TableroBody(world,posX,posY);
-		myBody.myBehavior=new TableroBehavior(myBody);
-		myFixture=new TableroFixture(myBody);
-		
+		myBody = new TableroBody(world, posX, posY);
+		myBody.myBehavior = new TableroBehavior(myBody);
+		myFixture = new TableroFixture(myBody);
+
 	}
 
 }

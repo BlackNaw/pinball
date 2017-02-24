@@ -2,17 +2,12 @@ package actores;
 
 import com.badlogic.gdx.physics.box2d.World;
 
-import behaviors.BallBehavior;
 import behaviors.BumperABehavior;
-import behaviors.MyBehavior;
-import behaviors.BotonesSuperBumperBehavior;
-import bodies.BallBody;
 import bodies.BumperABody;
-import fixturas.BallFixture;
 import fixturas.BumperAFixture;
 import interfaces.IObservador;
 
-public class BumperA extends MyActor{
+public class BumperA extends MyActor {
 
 	public BumperA(World world, float posX, float posY, RejillaAcceso rejillaAcceso) {
 		super(world, posX, posY);
@@ -21,6 +16,5 @@ public class BumperA extends MyActor{
 		rejillaAcceso.addObserver((IObservador) myBody.myBehavior);
 		myFixture = new BumperAFixture(myBody);
 	}
-
 
 }
