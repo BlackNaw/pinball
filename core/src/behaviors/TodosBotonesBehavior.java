@@ -2,14 +2,12 @@ package behaviors;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import actores.ConjuntoBotones;
 import bodies.MyBody;
 import interfaces.IObservable;
 import interfaces.IObservador;
-import interfaces.IReiniciable;
 
 public class TodosBotonesBehavior extends MyBehavior implements IObservable {
 	ArrayList<ConjuntoBotones> conjuntoBotones;
@@ -18,7 +16,7 @@ public class TodosBotonesBehavior extends MyBehavior implements IObservable {
 	public TodosBotonesBehavior(MyBody myBody, ArrayList<ConjuntoBotones> conjuntoBotones) {
 		super(myBody);
 		this.conjuntoBotones = conjuntoBotones;
-		observadores=new ArrayList<IObservador>();
+		observadores = new ArrayList<IObservador>();
 	}
 
 	@Override
@@ -37,10 +35,10 @@ public class TodosBotonesBehavior extends MyBehavior implements IObservable {
 	}
 
 	private boolean comprobarBotones() {
-		boolean activado=true;
+		boolean activado = true;
 		for (ConjuntoBotones b : conjuntoBotones) {
 			if (!b.comprobarConjuntoBotones())
-				activado=false;
+				activado = false;
 		}
 		return activado;
 	}

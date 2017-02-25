@@ -127,14 +127,14 @@ public class BotonesSuperBumperBehavior extends MyBehavior implements IReiniciab
 
 	@Override
 	public void reiniciar() {
-		contador=0;
+		contador = 0;
 		for (int i = 0; i < activados.length; i++) {
 			activados[i] = false;
 		}
 
 	}
-	
-	public void myReinicio(){
+
+	public void myReinicio() {
 		for (ConjuntoBotones conjuntoBotones2 : conjuntoBotones) {
 			conjuntoBotones2.reiniciarConjuntoBotones();
 		}

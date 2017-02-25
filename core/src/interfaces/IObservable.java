@@ -1,7 +1,5 @@
 package interfaces;
 
-import java.util.ArrayList;
-
 public interface IObservable {
 	
 		public void addObserver(IObservador observador);

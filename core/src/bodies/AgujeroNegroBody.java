@@ -16,7 +16,7 @@ public class AgujeroNegroBody extends MyBody implements ISensor {
 	public AgujeroNegroBody(World world, float posX, float posY) {
 		super(world, posX, posY);
 		textureAtlas = new TextureAtlas(Gdx.files.internal("Imagenes/Agujero/agujero.atlas"));
-		animacion = new Animation(1 / 11f, textureAtlas.findRegions("agujero"));
+		animacion = new Animation<Object>(1 / 11f, textureAtlas.findRegions("agujero"));
 		texturaRegion = new TextureRegion((TextureRegion) animacion.getKeyFrames()[0]);
 		sprite = new Sprite((texturaRegion.getTexture()));
 		sprite.setPosition(posX, posY);

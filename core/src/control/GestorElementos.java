@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
@@ -46,7 +45,7 @@ public class GestorElementos {
 	ArrayList<Rejilla> rejillas = new ArrayList<Rejilla>();
 	ArrayList<AgujeroNegro> agujeroNegro;
 	ArrayList<MyActor> e = new ArrayList<MyActor>();
-	MyActor flipperR,flipperL;
+	MyActor flipperR, flipperL;
 
 	public GestorElementos(World world) {
 		ball = new Ball(world, 360, 200, e);
@@ -54,7 +53,7 @@ public class GestorElementos {
 		hud = new HUD(world, Gdx.graphics.getWidth() - 210, Gdx.graphics.getHeight() - 100);
 
 		flipperL = new FlipperL(world, 128, 52, 50);
-		flipperR = new FlipperR(world,200, 51.5f  , 50);
+		flipperR = new FlipperR(world, 200, 51.5f, 50);
 
 		colisionadores = new Colisionadores(world);
 
@@ -88,9 +87,11 @@ public class GestorElementos {
 
 		bumpers.add(new BumperA(world, 186, 514, rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 246, 478, rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 172, 442, rejillaAccceso.get("rejillaAcceso")));
+		// bumpers.add(new BumperA(world, 172, 442,
+		// rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 150, 430, rejillaAccceso.get("rejillaAcceso")));
-//		bumpers.add(new BumperA(world, 236, 398, rejillaAccceso.get("rejillaAcceso")));
+		// bumpers.add(new BumperA(world, 236, 398,
+		// rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 220, 380, rejillaAccceso.get("rejillaAcceso")));
 		bumpers.add(new BumperA(world, 65, 525, rejillaAccceso.get("rejillaAccesoLab")));
 

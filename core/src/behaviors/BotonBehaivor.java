@@ -8,9 +8,8 @@ import actores.HUD;
 import bodies.BotonBody;
 import bodies.MyBody;
 import comunes.Constantes;
-import interfaces.IReiniciable;
 
-public class BotonBehaivor extends MyBehavior   {
+public class BotonBehaivor extends MyBehavior {
 	float vecX, vecY;
 	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER - 0.4f;
 	public boolean activado = false;

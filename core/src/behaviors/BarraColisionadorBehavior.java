@@ -9,8 +9,8 @@ import comunes.Constantes;
 
 public class BarraColisionadorBehavior extends MyBehavior {
 	float vecX, vecY;
-	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER-0.4f;
-	boolean activado=false;
+	float fuerzaBumperA = Constantes.FUERZA_MAX_BUMPER - 0.4f;
+	boolean activado = false;
 
 	public BarraColisionadorBehavior(MyBody myBody) {
 		super(myBody);
@@ -50,8 +50,8 @@ public class BarraColisionadorBehavior extends MyBehavior {
 		vecX = bolaBody.getLinearVelocity().x * -0.08f;
 		vecY = bolaBody.getLinearVelocity().y * -0.1f;
 
-		vecX = (Math.abs(vecX) < fuerzaBumperA-0.2f) ? vecX : (fuerzaBumperA-0.2f) * (Math.abs(vecX) / vecX);
-		vecY = (Math.abs(vecY) < fuerzaBumperA+0.5f) ? vecY : (fuerzaBumperA+0.2f) * (Math.abs(vecY) / vecY);
+		vecX = (Math.abs(vecX) < fuerzaBumperA - 0.2f) ? vecX : (fuerzaBumperA - 0.2f) * (Math.abs(vecX) / vecX);
+		vecY = (Math.abs(vecY) < fuerzaBumperA + 0.5f) ? vecY : (fuerzaBumperA + 0.2f) * (Math.abs(vecY) / vecY);
 		vecX = (myBody.sprite.getRotation() < 0) ? -Math.abs(vecX) : Math.abs(vecX);
 		bolaBody.applyLinearImpulse(new Vector2(vecX, vecY), myBody.body.getWorldCenter(), true);
 	}

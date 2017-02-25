@@ -23,7 +23,7 @@ public class BallBody extends MyBody {
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
 		bodyDef.position.set((sprite.getX() + sprite.getWidth() / 2) / Constantes.PIXELS_TO_METERS,
 				(sprite.getY() + sprite.getHeight() / 2) / Constantes.PIXELS_TO_METERS);
-		bodyDef.bullet=true;
+		bodyDef.bullet = true;
 		this.body = world.createBody(bodyDef);
 		body.setUserData(this);
 

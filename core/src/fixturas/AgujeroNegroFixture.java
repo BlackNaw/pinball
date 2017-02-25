@@ -13,8 +13,9 @@ public class AgujeroNegroFixture extends MyFixture {
 	public AgujeroNegroFixture(MyBody myBody) {
 		super(myBody);
 		CircleShape circleShape = new CircleShape();
-		Animation animacion = ((AgujeroNegroBody) myBody).animacion;
-		circleShape.setRadius((((AtlasRegion) animacion.getKeyFrames()[0]).getRegionHeight() / 2) / Constantes.PIXELS_TO_METERS);
+		Animation<?> animacion = ((AgujeroNegroBody) myBody).animacion;
+		circleShape.setRadius(
+				(((AtlasRegion) animacion.getKeyFrames()[0]).getRegionHeight() / 2) / Constantes.PIXELS_TO_METERS);
 		fixtureDef.shape = circleShape;
 		fixtureDef.isSensor = true;
 		myBody.body.createFixture(fixtureDef);

@@ -12,7 +12,6 @@ import actores.MyActor;
 import behaviors.BallBehavior;
 import behaviors.FlipperBehaviorL;
 import behaviors.FlipperBehaviorR;
-import control.GestorElementos;
 import interfaces.IObservable;
 import interfaces.IObservador;
 

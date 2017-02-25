@@ -73,13 +73,13 @@ public class BumperABehavior extends MyBehavior implements IObservador {
 		puntuacion *= 2;
 		if (nivel < 4)
 			((BumperABody) myBody).cambiarTexture(++nivel);
-}
-	
+	}
+
 	@Override
 	public void reiniciar() {
-		nivel=0;
+		nivel = 0;
 		((BumperABody) myBody).cambiarTexture(nivel);
-		puntuacion=Constantes.PUNTOS_BUMPERA;
+		puntuacion = Constantes.PUNTOS_BUMPERA;
 	}
 
 }

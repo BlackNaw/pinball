@@ -10,13 +10,13 @@ import comunes.Constantes;
 
 public class BarraColisionadorBody extends MyBody {
 
-	public BarraColisionadorBody(World world, float posX, float posY,float giro) {
+	public BarraColisionadorBody(World world, float posX, float posY, float giro) {
 		super(world, posX, posY);
-		texture=new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
+		texture = new Texture(Gdx.files.internal("Imagenes/Botones/botonRojo.png"));
 		sprite = new Sprite(texture);
 		sprite.setPosition(posX, posY);
 		sprite.setSize(2, 85);
-		sprite.setOrigin(0,0);
+		sprite.setOrigin(0, 0);
 		sprite.setRotation(giro);
 		bodyDef.type = BodyDef.BodyType.StaticBody;
 		bodyDef.position.set((sprite.getX() + sprite.getWidth() / 2) / Constantes.PIXELS_TO_METERS,

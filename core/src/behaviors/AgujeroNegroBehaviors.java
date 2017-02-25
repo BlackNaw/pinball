@@ -1,15 +1,11 @@
 package behaviors;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
 import actores.MyActor;
@@ -40,7 +36,7 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 				if (distanciaObjetos <= (Constantes.DISTANCIA_AGUJERO_NEGRO[0] + 0.15f)) {
 					myActor.myBody.body.setGravityScale(0f);
 					atraerObjetos(myActor, distanciaObjetos);
-				}else {
+				} else {
 					myActor.myBody.body.setGravityScale(1f);
 				}
 
@@ -81,9 +77,11 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 	private void lanzarObjeto(MyActor myActor) {
 		float numero = obtenerLanzamientoObjetoX(myActor);
 		myActor.myBody.body.applyForceToCenter(numero, Constantes.VELOCIDAD_Y_LANZAMIENTO_OBJETO_AGUJERO_NEGRO, true);
-		/*myActor.myBody.body.applyLinearImpulse(
-				new Vector2(numero, Constantes.VELOCIDAD_Y_LANZAMIENTO_OBJETO_AGUJERO_NEGRO),
-				myActor.myBody.body.getWorldCenter(), true);*/
+		/*
+		 * myActor.myBody.body.applyLinearImpulse( new Vector2(numero,
+		 * Constantes.VELOCIDAD_Y_LANZAMIENTO_OBJETO_AGUJERO_NEGRO),
+		 * myActor.myBody.body.getWorldCenter(), true);
+		 */
 	}
 
 	private float obtenerLanzamientoObjetoX(MyActor myActor) {
@@ -96,13 +94,12 @@ public class AgujeroNegroBehaviors extends MyBehavior {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		Animation animation = ((AgujeroNegroBody) myBody).animacion;
+		Animation<?> animation = ((AgujeroNegroBody) myBody).animacion;
 		float x = myBody.sprite.getX();
 		float y = myBody.sprite.getY();
 		elapsedTime += Gdx.graphics.getDeltaTime();
 		TextureRegion textureRegion = (TextureRegion) animation.getKeyFrame(elapsedTime, true);
 		batch.draw(textureRegion, x, y);
 	}
-
 
 }

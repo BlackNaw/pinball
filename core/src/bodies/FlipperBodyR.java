@@ -1,6 +1,5 @@
 package bodies;
 
-import static comunes.Constantes.DOWN_SPEED;
 import static comunes.Constantes.LOWER;
 import static comunes.Constantes.UPPER;
 
@@ -13,7 +12,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.joints.RevoluteJoint;
 import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
-import comunes.*;
+
+import comunes.BoxBodyBuilder;
 
 
 public class FlipperBodyR extends MyBody {

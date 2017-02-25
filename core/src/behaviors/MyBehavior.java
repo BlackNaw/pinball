@@ -7,7 +7,7 @@ import bodies.MyBody;
 import interfaces.IChocable;
 import interfaces.IReiniciable;
 
-public abstract class MyBehavior implements IChocable,IReiniciable {
+public abstract class MyBehavior implements IChocable, IReiniciable {
 	MyBody myBody;
 
 	public MyBehavior(MyBody myBody) {
@@ -29,8 +29,9 @@ public abstract class MyBehavior implements IChocable,IReiniciable {
 		// TODO Auto-generated method stub
 
 	}
+
 	@Override
-	public void reiniciar(){
-		
+	public void reiniciar() {
+
 	}
 }

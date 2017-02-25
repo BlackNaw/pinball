@@ -2,21 +2,13 @@ package control;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier.CentripetalAcceleration;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
 
-import actores.HUD;
-import comunes.MakingACage;
 import comunes.MyCamera;
 import comunes.Teclado;
-import comunes.Alerta;
-import comunes.Constantes;
-import comunes.ContactAdapter;
-import comunes.Estados;
 import debug.MyDebug;
-import interfaces.IObservable;
 
 public class Game implements Disposable {
 
@@ -31,14 +23,13 @@ public class Game implements Disposable {
 
 	public Game(World world) {
 		this.world = world;
-		
+
 		batch = new SpriteBatch();
 		mycamera = new MyCamera();
 		stage = new Stage(mycamera.viewport, batch);
 
 		myDebug = new MyDebug();
 
-		
 		gestor = new GestorElementos(world);
 		gestor.anadirElementosStage(stage);
 		teclado = new Teclado(stage);
@@ -46,26 +37,24 @@ public class Game implements Disposable {
 		Gdx.input.setInputProcessor(teclado);
 		teclado.addObserver(myDebug);
 		this.world.setContactListener(logica);
-		
-		
-	}
 
+	}
 
 	public void act() {
 
-			logica.act();
-			stage.act();
+		logica.act();
+		stage.act();
 
 	}
 
 	public void render() {
-			// UPDATE
-			mycamera.update();
+		// UPDATE
+		mycamera.update();
 
-			// DRAWS
-			stage.draw();
-			mycamera.draw(batch);
-			myDebug.draw(world, batch);
+		// DRAWS
+		stage.draw();
+		mycamera.draw(batch);
+		myDebug.draw(world, batch);
 
 	}
 
